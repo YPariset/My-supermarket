@@ -5,6 +5,7 @@ import product.StockProduct;
 import java.util.Scanner;
 
 public class AdminMenu implements Menu {
+    StockProduct product = new StockProduct();
     @Override
     public void show() {
         //show admin menu
@@ -19,28 +20,26 @@ public class AdminMenu implements Menu {
         switch (administratorChoice) {
             case 1:
                 // Product List
-                System.out.println("### Product List ###");
-                System.out.println(" ");
-                StockProduct product = new StockProduct();
                 product.getProductStock();
                 int choiceProductList = scan.nextInt();
 
-                System.out.println("0 to return ");
                 switch (choiceProductList) {
                     case 0 :
-                        new MainMenu();
+
                         break;
                 }
                 break;
 
             case 2:
                 // Add product
-                StockProduct productAdd = new StockProduct();
-                productAdd.addProduct();
+                product.addProduct();
+                show();
+                break;
+
 
             case 3:
                 // return
-                new MainMenu();
+                show();
 
         }
     }

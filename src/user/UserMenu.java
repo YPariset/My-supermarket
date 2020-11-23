@@ -21,24 +21,18 @@ public class UserMenu implements Menu {
         int choiceClient = scan.nextInt();
 
         switch (choiceClient) {
-
             case 1:
                 // List Product
-                System.out.println("### Product List ###");
-                System.out.println(" ");
                 product.getProductStock();
-                System.out.println("0 to return ");
-                System.out.println(">");
-
 
                 int choiceProductList = scan.nextInt();
 
                 switch (choiceProductList) {
                     case 0:
-                        new MainMenu();
+                        show();
                         break;
                 }
-                break;
+
 
             case 2:
                 // My cart
@@ -59,14 +53,14 @@ public class UserMenu implements Menu {
 
                         switch (payed) {
                             case 1 :
-                                new MainMenu();
+
                                 break;
                         }
                         break;
 
 
                     case 2 :
-                        new MainMenu();
+                        
                         break;
                 }
 
