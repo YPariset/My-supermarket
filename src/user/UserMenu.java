@@ -1,10 +1,14 @@
 package user;
 
+import product.Product;
+import product.StockProduct;
+
 import java.util.Scanner;
 
 public class UserMenu implements Menu {
     @Override
     public void show() {
+        StockProduct product = new StockProduct();
         //show user menu
         Scanner scan = new Scanner(System.in);
 
@@ -31,7 +35,7 @@ public class UserMenu implements Menu {
                         break;
 
                     case 1:
-                        // product
+                        product.getProductStock();
                         break;
                 }
                 break;

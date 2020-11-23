@@ -9,13 +9,30 @@ public class MainMenu {
         Scanner scan = new Scanner(System.in);
 
         // Main Menu
-        System.out.println("### Main ###");
+        System.out.println("|---------------------------------|");
+        System.out.println("> \uD83C\uDF4D My Pineapple Supermarket \uD83C\uDF4D  < ");
+        System.out.println("|---------------------------------|");
+        System.out.println(" ");
         System.out.println("What do you want to do ? ");
         System.out.println(" 1 ) Log in as a client ");
         System.out.println(" 2 ) Log in as an administrator ");
         System.out.println(" 3 ) Exit ");
 
-        int MainMenuChoice = scan.nextInt();
+        int mainMenuChoice = scan.nextInt();
+
+        switch (mainMenuChoice) {
+            case 1:
+                new UserMenu().show();
+                break;
+
+            case 2 :
+                new AdminMenu().show();
+                break;
+
+            case 3 :
+
+                break;
+        }
 
         /*
         // Client  OK

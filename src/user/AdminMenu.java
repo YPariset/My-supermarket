@@ -1,5 +1,7 @@
 package user;
 
+import product.StockProduct;
+
 import java.util.Scanner;
 
 public class AdminMenu implements Menu {
@@ -28,7 +30,8 @@ public class AdminMenu implements Menu {
                         break;
 
                     case 1 :
-                        // product list
+                        StockProduct product = new StockProduct();
+                        product.getProductStock();
                         break;
                 }
                 break;
