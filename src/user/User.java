@@ -1,6 +1,6 @@
 package user;
 
-import java.awt.*;
+import java.util.Scanner;
 
 public class User {
 
@@ -39,7 +39,6 @@ public class User {
     /****************************************************/
     /***********            Setters           ***********/
     /****************************************************/
-
 
 
 }

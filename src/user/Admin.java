@@ -1,6 +1,7 @@
 package user;
 
 import java.awt.*;
+import java.util.Scanner;
 
 public class Admin extends User {
 
@@ -35,5 +36,6 @@ public class Admin extends User {
     /****************************************************/
     /***********            Setters           ***********/
     /****************************************************/
+
 
 }

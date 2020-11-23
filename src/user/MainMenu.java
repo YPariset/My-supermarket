@@ -1,6 +1,9 @@
+package user;
+
 import java.util.Scanner;
 
 public class MainMenu {
+
     public MainMenu() {
 
         Scanner scan = new Scanner(System.in);
@@ -14,7 +17,7 @@ public class MainMenu {
 
         int MainMenuChoice = scan.nextInt();
 
-        // Client
+        // Client  OK
         System.out.println("### Client ###");
         System.out.println("What do you want to do");
         System.out.println(" 1 ) List products");
@@ -27,20 +30,17 @@ public class MainMenu {
         System.out.println("### Product List ###");
         System.out.println("0 to return ");
         System.out.println(" 1 ) Product ");
-
         int choiceProductList = scan.nextInt();
 
         // Product
         System.out.println("Product ");
         System.out.println("How many product do you want ? ( 0 to return)");
-
         int choiceProduct = scan.nextInt();
 
         // Sub menu Product
         System.out.println("### Product ### ");
         System.out.println("Product");
         System.out.println("How many product do you want ? ( 0 to return)");
-
         int subMenuProduct = scan.nextInt();
 
         // Cart
@@ -49,9 +49,17 @@ public class MainMenu {
         System.out.println("What do you want to do? ");
         System.out.println(" 1 ) Buy cart ");
         System.out.println(" 2 ) Return ");
-
         int cart = scan.nextInt();
 
+        // When payed
+        System.out.println("### Cart ###");
+        System.out.println("Your cart has been processed you will receive you article soon ");
+        System.out.println("What do you want to do ");
+        System.out.println(" 1 ) OK ");
+
+        int whenPayed = scan.nextInt();
+
+        // Add product
         System.out.println("### ADD PRODUCT ###");
         System.out.println("Enter product name ");
         String productName = scan.nextLine();
@@ -62,6 +70,9 @@ public class MainMenu {
         if (productQuantity >= 0 ) {
             System.out.println("Product added");
         }
+        int addProduct = scan.nextInt();
+
+
 
 
     }
