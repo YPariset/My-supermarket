@@ -1,13 +1,14 @@
 package user;
 
-import java.awt.*;
+import consolePrompt.Menu;
+import consolePrompt.UserMenu;
 
 import static user.Customer.customerList;
 
 public class User {
 
     /****************************************************/
-    /***********           Attributes         ***********/
+    /*************** Attributes/Instances ***************/
     /****************************************************/
 
     private String username;

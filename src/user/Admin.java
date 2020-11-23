@@ -1,16 +1,18 @@
 package user;
 
-import java.awt.*;
+import consolePrompt.AdminMenu;
+import consolePrompt.Menu;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Admin extends User {
 
     /****************************************************/
-    /***********           Attributes         ***********/
+    /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    public static ArrayList<User> adminList;
+    protected static ArrayList<User> adminList;
     Scanner scanner = new Scanner(System.in);
 
     /****************************************************/

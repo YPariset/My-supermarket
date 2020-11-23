@@ -1,14 +1,12 @@
 package user;
 
-import user.User;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Customer extends User  {
 
     /****************************************************/
-    /***********           Attributes         ***********/
+    /*************** Attributes/Instances ***************/
     /****************************************************/
 
     public static ArrayList<User> customerList;
