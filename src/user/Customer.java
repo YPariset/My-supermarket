@@ -1,47 +1,42 @@
 package user;
 
-import java.awt.*;
+import user.User;
 
-import static user.Customer.customerList;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class User {
+public class Customer extends User  {
 
     /****************************************************/
     /***********           Attributes         ***********/
     /****************************************************/
 
-    private String username;
-    private String password;
+    public static ArrayList<User> customerList;
+    Scanner scanner = new Scanner(System.in);
 
     /****************************************************/
     /***********           Constructor        ***********/
     /****************************************************/
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public Customer(String username, String password) {
+        super(username, password);
+        customerList = new ArrayList<>();
+
+        customerList.add(new User("Yoann","azerty"));
+        customerList.add(new User("Lea","azerty"));
+        customerList.add(new User("Paul","azerty"));
     }
 
     /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
 
-    public boolean authenticate(String username, String password) {
-        return this.username.equals(username) && this.password.equals(password);
-    }
 
-    public void addUser(String userName, String password ) {
-        User theUser = new User(userName, password);
-        customerList.add(theUser);
-    }
 
     /****************************************************/
     /***********            Getters           ***********/
     /****************************************************/
 
-    public Menu getMenu() {
-        return new UserMenu();
-    }
 
     /****************************************************/
     /***********            Setters           ***********/

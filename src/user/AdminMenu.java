@@ -28,7 +28,6 @@ public class AdminMenu implements Menu {
                     case 0 :
                         new MainMenu();
                         break;
-
                     case 1 :
                         StockProduct product = new StockProduct();
                         product.getProductStock();
