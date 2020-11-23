@@ -1,6 +1,8 @@
 package consolePrompt;
 
 import product.StockProduct;
+import user.Admin;
+import user.User;
 
 import java.util.Scanner;
 
@@ -11,6 +13,8 @@ public class MainMenu implements Menu {
     /****************************************************/
 
    protected static StockProduct product = new StockProduct();
+   User user = new User("","");
+   Admin admin = new Admin("","");
 
 
     /****************************************************/
@@ -20,6 +24,7 @@ public class MainMenu implements Menu {
     @Override
     public void show() {
         AdminMenu adminMenu = new AdminMenu();
+
         UserMenu userMenu = new UserMenu();
         Scanner scan = new Scanner(System.in);
 
@@ -39,11 +44,11 @@ public class MainMenu implements Menu {
 
         switch (mainMenuChoice) {
             case 1:
-                userMenu.show();
+                user.LogInUser();
                 break;
 
             case 2 :
-                adminMenu.show();
+                admin.LogInAdmin();
                 break;
 
             case 3 :
