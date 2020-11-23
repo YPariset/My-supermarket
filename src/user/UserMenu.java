@@ -25,17 +25,17 @@ public class UserMenu implements Menu {
             case 1:
                 // List Product
                 System.out.println("### Product List ###");
+                System.out.println(" ");
+                product.getProductStock();
                 System.out.println("0 to return ");
-                System.out.println(" 1 ) Product ");
+                System.out.println(">");
+
+
                 int choiceProductList = scan.nextInt();
 
                 switch (choiceProductList) {
                     case 0:
                         new MainMenu();
-                        break;
-
-                    case 1:
-                        product.getProductStock();
                         break;
                 }
                 break;

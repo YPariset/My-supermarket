@@ -18,37 +18,25 @@ public class AdminMenu implements Menu {
 
         switch (administratorChoice) {
             case 1:
-
                 // Product List
                 System.out.println("### Product List ###");
-                System.out.println("0 to return ");
-                System.out.println(" 1 ) Product ");
+                System.out.println(" ");
+                StockProduct product = new StockProduct();
+                product.getProductStock();
                 int choiceProductList = scan.nextInt();
+
+                System.out.println("0 to return ");
                 switch (choiceProductList) {
                     case 0 :
                         new MainMenu();
-                        break;
-                    case 1 :
-                        StockProduct product = new StockProduct();
-                        product.getProductStock();
                         break;
                 }
                 break;
 
             case 2:
                 // Add product
-                System.out.println("### ADD PRODUCT ###");
-                System.out.println("Enter product name ");
-                String productName = scan.nextLine();
-                System.out.println("Enter product price ");
-                int productPrice = scan.nextInt();
-                System.out.println("Enter product Quantity ");
-                int productQuantity = scan.nextInt();
-                if (productQuantity >= 0 ) {
-                    System.out.println("Product added");
-                }
-                int addProduct = scan.nextInt();
-
+                StockProduct productAdd = new StockProduct();
+                productAdd.addProduct();
 
             case 3:
                 // return
