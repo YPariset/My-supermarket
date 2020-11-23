@@ -22,7 +22,7 @@ public class AdminMenu implements Menu {
                 System.out.println("0 to return ");
                 System.out.println(" 1 ) Product ");
                 int choiceProductList = scan.nextInt();
-                switch (administratorChoice) {
+                switch (choiceProductList) {
                     case 0 :
                         new MainMenu();
                         break;

@@ -17,6 +17,7 @@ public class MainMenu {
 
         int MainMenuChoice = scan.nextInt();
 
+        /*
         // Client  OK
         System.out.println("### Client ###");
         System.out.println("What do you want to do");
@@ -71,6 +72,8 @@ public class MainMenu {
             System.out.println("Product added");
         }
         int addProduct = scan.nextInt();
+
+         */
 
 
 

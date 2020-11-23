@@ -14,7 +14,6 @@ public class UserMenu implements Menu {
         System.out.println(" 1 ) List products");
         System.out.println(" 2 ) My cart ");
         System.out.println(" 3 ) Logout ");
-
         int choiceClient = scan.nextInt();
 
         switch (choiceClient) {
@@ -28,11 +27,12 @@ public class UserMenu implements Menu {
 
                 switch (choiceProductList) {
                     case 0:
-
+                        new MainMenu();
+                        break;
 
                     case 1:
                         // product
-
+                        break;
                 }
                 break;
 
@@ -45,7 +45,26 @@ public class UserMenu implements Menu {
                 System.out.println(" 2 ) Return ");
                 int cart = scan.nextInt();
 
-                break;
+                switch (cart) {
+                    case 1 :
+                        System.out.println("### Cart ###");
+                        System.out.println("Your cart has been processed you will receive you article soon ");
+                        System.out.println("What do you want to do ");
+                        System.out.println(" 1 ) OK ");
+                        int payed = scan.nextInt();
+
+                        switch (payed) {
+                            case 1 :
+                                new MainMenu();
+                                break;
+                        }
+                        break;
+
+
+                    case 2 :
+                        new MainMenu();
+                        break;
+                }
 
             case 3:
                 // Logout
