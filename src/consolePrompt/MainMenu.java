@@ -14,8 +14,8 @@ public class MainMenu implements Menu {
     /****************************************************/
 
     protected static StockProduct product = new StockProduct();
-    User user = new User("", "");
-    Admin admin = new Admin("", "");
+    protected static User user = new User("", "");
+    protected static Admin admin = new Admin("", "");
 
 
     /****************************************************/

@@ -12,7 +12,7 @@ public class User {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    public static ArrayList<User> userList;
+    public static ArrayList<User> userList = new ArrayList<>();
 
     private String username;
     private String password;
@@ -26,9 +26,6 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-
-        userList = new ArrayList<>();
-
     }
 
 
@@ -79,7 +76,6 @@ public class User {
         String password = output.nextLine();
 
 
-
         for (int i = 0; i < userList.size(); i++) {
             User user = userList.get(i);
             if (user.authenticate(username, password)) {
@@ -102,7 +98,7 @@ public class User {
         System.out.println("Please enter your password");
         String newPassword = output.nextLine();
         User theUser = new User(newUsername, newPassword);
-        userList.add(theUser);
+        this.userList.add(theUser);
     }
 
     /****************************************************/
