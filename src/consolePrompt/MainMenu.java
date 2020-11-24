@@ -4,6 +4,7 @@ import product.StockProduct;
 import user.Admin;
 import user.User;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainMenu implements Menu {
@@ -12,9 +13,9 @@ public class MainMenu implements Menu {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-   protected static StockProduct product = new StockProduct();
-   User user = new User("","");
-   Admin admin = new Admin("","");
+    protected static StockProduct product = new StockProduct();
+    User user = new User("", "");
+    Admin admin = new Admin("", "");
 
 
     /****************************************************/
@@ -23,37 +24,50 @@ public class MainMenu implements Menu {
 
     @Override
     public void show() {
-        AdminMenu adminMenu = new AdminMenu();
 
-        UserMenu userMenu = new UserMenu();
-        Scanner scan = new Scanner(System.in);
+        boolean inProgress = false;
 
-        // Main Menu
-        System.out.println(" ");
-        System.out.println("|---------------------------------|");
-        System.out.println("> \uD83C\uDF4D My Pineapple Supermarket \uD83C\uDF4D  < ");
-        System.out.println("|---------------------------------|");
-        System.out.println(" ");
-        System.out.println("What do you want to do ? ");
-        System.out.println(" 1 ) Log in as a client ");
-        System.out.println(" 2 ) Log in as an administrator ");
-        System.out.println(" 3 ) Exit ");
-        System.out.print(">");
+        while (!inProgress) {
+            try {
+                AdminMenu adminMenu = new AdminMenu();
 
-        int mainMenuChoice = scan.nextInt();
+                UserMenu userMenu = new UserMenu();
+                Scanner scan = new Scanner(System.in);
 
-        switch (mainMenuChoice) {
-            case 1:
-                user.LogInUser();
-                break;
+                // Main Menu
+                System.out.println(" ");
+                System.out.println("|---------------------------------|");
+                System.out.println("> \uD83C\uDF4D My Pineapple Supermarket \uD83C\uDF4D  < ");
+                System.out.println("|---------------------------------|");
+                System.out.println(" ");
+                System.out.println("What do you want to do ? ");
+                System.out.println(" 1 ) Log in as a client ");
+                System.out.println(" 2 ) Log in as an administrator ");
+                System.out.println(" 3 ) Exit ");
+                System.out.print(">");
 
-            case 2 :
-                admin.LogInAdmin();
-                break;
+                int mainMenuChoice = scan.nextInt();
 
-            case 3 :
-                System.exit(1);
-                break;
+                if (mainMenuChoice != 1 || mainMenuChoice != 2 || mainMenuChoice!= 3) {
+                    System.out.println("Please enter a number between 1 to 3");
+                }
+
+                switch (mainMenuChoice) {
+                    case 1:
+                        user.LogInUser();
+                        break;
+
+                    case 2:
+                        admin.LogInAdmin();
+                        break;
+
+                    case 3:
+                        System.exit(1);
+                        break;
+                }
+            } catch (InputMismatchException e ) {
+                System.out.println("Please enter a number");
+            }
         }
     }
 }
