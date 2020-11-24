@@ -34,7 +34,7 @@ public class MainMenu implements Menu {
                 // Main Menu
                 System.out.println(" ");
                 System.out.println("|---------------------------------|");
-                System.out.println("> \uD83C\uDF4D My Pineapple Supermarket \uD83C\uDF4D  < ");
+                System.out.println(">    \uD83C\uDF4D Pineapple Supermarket \uD83C\uDF4D   < ");
                 System.out.println("|---------------------------------|");
                 System.out.println(" ");
                 System.out.println("What do you want to do ? ");

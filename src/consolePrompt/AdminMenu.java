@@ -1,5 +1,7 @@
 package consolePrompt;
 
+import user.User;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,6 +12,7 @@ public class AdminMenu implements Menu {
     /****************************************************/
 
     MainMenu mainMenu = new MainMenu();
+    User user = new User("","");
 
     @Override
     public void show() {
@@ -26,7 +29,7 @@ public class AdminMenu implements Menu {
                 System.out.println(" 1 ) List products ");
                 System.out.println(" 2 ) Add a product ");
                 System.out.println(" 3 ) See Client's order ");
-                System.out.println(" 4 ) Return ");
+                System.out.println(" 4 ) Log out ");
                 System.out.print(">");
 
                 int administratorChoice = scan.nextInt();
@@ -35,6 +38,8 @@ public class AdminMenu implements Menu {
                     case 1:
                         // Product List
                         MainMenu.product.getProductStock();
+                        System.out.println("0 to return ");
+                        System.out.print(">");
                         int choiceProductList = scan.nextInt();
 
 
@@ -46,17 +51,18 @@ public class AdminMenu implements Menu {
                         break;
 
                     case 2:
-                        // Add product
                         MainMenu.product.addProduct();
                         show();
                         break;
 
                     case 3:
-
-
+                        for( User element : User.userList ) {
+                            System.out.println(element.getUsername());
+                        }
+                        break;
                     case 4:
-                        // return in the MainMenu
-                        mainMenu.show();
+                        System.exit(1);
+                        break;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a number between 1 to 3");

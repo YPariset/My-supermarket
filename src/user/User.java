@@ -99,6 +99,7 @@ public class User {
         String newPassword = output.nextLine();
         User theUser = new User(newUsername, newPassword);
         this.userList.add(theUser);
+        System.out.println("Congrats ! You just created a new account");
     }
 
     /****************************************************/
@@ -107,6 +108,14 @@ public class User {
 
     public Menu getMenu() {
         return new UserMenu();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     /****************************************************/
