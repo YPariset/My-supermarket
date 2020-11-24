@@ -1,8 +1,5 @@
 package consolePrompt;
 
-import product.CartShopping;
-import product.StockProduct;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

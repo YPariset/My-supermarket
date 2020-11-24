@@ -42,10 +42,10 @@ public class CartShopping {
             if(shoppingList == null) {
                 System.out.println("Votre panier est vide");
             }else {
-                System.out.println("product : " + elements.getProduct() + " price: " + elements.getPrice() + "quantity: " + elements.getQuantity()+ "\n"
-                        + " Montant total :" + getCartTotalAmount());
+                System.out.println("product : " + elements.getProduct() + " || price: " + elements.getPrice() + " || quantity: " + elements.getQuantity());
             }
         }
+        System.out.println(" Total amount :" + getCartTotalAmount()+ "\n");
     }
 
     public static void addToCart(String name, int quantity, float price, int id){

@@ -40,7 +40,8 @@ public class MainMenu implements Menu {
                 System.out.println("What do you want to do ? ");
                 System.out.println(" 1 ) Log in as a client ");
                 System.out.println(" 2 ) Log in as an administrator ");
-                System.out.println(" 3 ) Exit ");
+                System.out.println(" 3 ) Create an account as a client ");
+                System.out.println(" 4 ) Exit ");
                 System.out.print(">");
 
                 int mainMenuChoice = scan.nextInt();
@@ -53,8 +54,10 @@ public class MainMenu implements Menu {
                     case 2:
                         admin.LogInAdmin();
                         break;
-
                     case 3:
+                        user.addUser();
+                        break;
+                    case 4:
                         System.exit(1);
                         break;
                 }
