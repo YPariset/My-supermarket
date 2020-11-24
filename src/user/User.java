@@ -13,6 +13,7 @@ public class User {
     /****************************************************/
 
     public static ArrayList<User> userList = new ArrayList<>();
+    public static ArrayList<Admin> adminList = new ArrayList<>();
 
     private String username;
     private String password;
@@ -33,13 +34,13 @@ public class User {
     /***********            Methods           ***********/
     /****************************************************/
 
-    public void LogInUser() {
+    public void LogIn() {
 
-        User user1 = new User("tommy", "tommy");
-        User user2 = new User("phil2", "phil2");
+        User user1 = new User("guest", "guest");
+        Admin admin1 = new Admin("admin", "admin");
 
         userList.add(user1);
-        userList.add(user2);
+        adminList.add(admin1);
 
         System.out.println("Please enter your username and your password \n ");
         System.out.println(" Username: ");
@@ -54,31 +55,12 @@ public class User {
             if (user.authenticate(username, password)) {
                 user.getMenu().show();
                 break;
-            } else {
-                System.out.println("Sorry you don't have permission");
             }
-            break;
         }
-    }                                               //Voir avec team pour optimiser LoginUser/loginAdmin
 
-    public void LogInAdmin() {
-
-        Admin admin = new Admin("admin", "admin");
-
-        userList.add(admin);
-
-        System.out.println("Please enter your username and your password \n ");
-        System.out.println(" Username: ");
-        System.out.print(">");
-        String username = output.nextLine();
-        System.out.println(" Password: ");
-        System.out.print(">");
-        String password = output.nextLine();
-
-
-        for (int i = 0; i < userList.size(); i++) {
-            User user = userList.get(i);
-            if (user.authenticate(username, password)) {
+        for (int i = 0; i < adminList.size(); i++) {
+            User admin = adminList.get(i);
+            if (admin.authenticate(username, password)) {
                 admin.getMenu().show();
                 break;
             } else {

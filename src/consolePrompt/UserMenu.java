@@ -7,6 +7,8 @@ import static product.CartShopping.*;
 
 public class UserMenu implements Menu {
 
+
+
     /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
@@ -85,7 +87,7 @@ public class UserMenu implements Menu {
                                 int payed = scan.nextInt();
                                 switch (payed) {
                                     case 1:
-                                        //remove cart
+                                       //remove
                                         System.out.println("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
                                         break;
                                     case 0:
@@ -106,7 +108,8 @@ public class UserMenu implements Menu {
                         }
                     case 0:
                         // Logout
-                        System.exit(1);
+                        MainMenu mainMenu = new MainMenu();
+                        mainMenu.show();
                         break;
 
                 }

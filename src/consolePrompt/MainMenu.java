@@ -15,7 +15,6 @@ public class MainMenu implements Menu {
 
     protected static StockProduct product = new StockProduct();
     protected static User user = new User("", "");
-    protected static Admin admin = new Admin("", "");
 
 
     /****************************************************/
@@ -38,26 +37,21 @@ public class MainMenu implements Menu {
                 System.out.println("|---------------------------------|");
                 System.out.println(" ");
                 System.out.println("What do you want to do ? ");
-                System.out.println(" 1 ) Log in as a client ");
-                System.out.println(" 2 ) Log in as an administrator ");
-                System.out.println(" 3 ) Create an account as a client ");
-                System.out.println(" 4 ) Exit ");
+                System.out.println(" 1 ) Log in ");
+                System.out.println(" 2 ) Create an account as a client ");
+                System.out.println(" 3 ) Exit ");
                 System.out.print(">");
 
                 int mainMenuChoice = scan.nextInt();
 
                 switch (mainMenuChoice) {
                     case 1:
-                        user.LogInUser();
+                        user.LogIn();
                         break;
-
                     case 2:
-                        admin.LogInAdmin();
-                        break;
-                    case 3:
                         user.addUser();
                         break;
-                    case 4:
+                    case 3:
                         System.exit(1);
                         break;
                 }

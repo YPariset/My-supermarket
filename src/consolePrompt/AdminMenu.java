@@ -38,7 +38,7 @@ public class AdminMenu implements Menu {
                     case 1:
                         // Product List
                         MainMenu.product.getProductStock();
-                        System.out.println("0 to return ");
+                        System.out.println("0) to return ");
                         System.out.print(">");
                         int choiceProductList = scan.nextInt();
 
@@ -61,7 +61,8 @@ public class AdminMenu implements Menu {
                         }
                         break;
                     case 4:
-                        System.exit(1);
+                        MainMenu mainMenu = new MainMenu();
+                        mainMenu.show();
                         break;
                 }
             } catch (InputMismatchException e) {
