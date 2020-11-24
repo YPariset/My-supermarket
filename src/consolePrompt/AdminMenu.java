@@ -25,7 +25,8 @@ public class AdminMenu implements Menu {
                 System.out.println("What do you want to do");
                 System.out.println(" 1 ) List products ");
                 System.out.println(" 2 ) Add a product ");
-                System.out.println(" 3 ) Return ");
+                System.out.println(" 3 ) See Client's order ");
+                System.out.println(" 4 ) Return ");
                 System.out.print(">");
 
                 int administratorChoice = scan.nextInt();
@@ -55,9 +56,11 @@ public class AdminMenu implements Menu {
     /****************************************************/
 
                     case 3:
+
+
+                    case 4:
                         // return in the MainMenu
                         mainMenu.show();
-
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a number between 1 to 3");
