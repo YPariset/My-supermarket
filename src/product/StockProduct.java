@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StockProduct {
-
     /****************************************************/
     /***********           Attributes         ***********/
     /****************************************************/
@@ -42,8 +41,8 @@ public class StockProduct {
         System.out.println("### Product List ###");
         System.out.println(" ");
         for (Product myProduct : productStockList) {
-            result += "Name: " + myProduct.getProduct()+ " || Quantity: " + myProduct.getQuantity() +
-                    " || Price: " + myProduct.getPrice() + "€ \n";
+            result += "Name: " + myProduct.getProduct()+ " | Quantity: " + myProduct.getQuantity() +
+                    " | Price: " + myProduct.getPrice() + "€ \n";
             }
         System.out.println(result);
         System.out.println("0 to return ");
@@ -69,14 +68,37 @@ public class StockProduct {
         productStockList.add(myProduct);
     }
 
+    public boolean isAvailable(Product itemToFind){
+        boolean found = false;
+        if(productStockList.contains(itemToFind)){
+            System.out.println(itemToFind + " is Available.");
+            found = true;
+        }else {
+            System.out.println(itemToFind + " is not Available.");
+            found = false;
+        }
+        return found;
+    }
+    public void checkQuantity (Product itemQuantityToFind){
+        int quantityDesired;
+        if (isAvailable(itemQuantityToFind)){
+            System.out.println("Enter the quantity desired: ");
+            quantityDesired = input.nextInt();
+            if(quantityDesired < itemQuantityToFind.getQuantity()){
+                System.out.println("Item quantity available.");
+
+            }
+        }
+    }
+
+
+
     /****************************************************/
     /***********            Getters           ***********/
     /****************************************************/
 
 
 
-    /****************************************************/
-    /***********            Setters           ***********/
-    /****************************************************/
+    }
 
-}
+
