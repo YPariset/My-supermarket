@@ -48,10 +48,6 @@ public class MainMenu implements Menu {
 
                 int mainMenuChoice = scan.nextInt();
 
-                if (mainMenuChoice != 1 || mainMenuChoice != 2 || mainMenuChoice!= 3) {
-                    System.out.println("Please enter a number between 1 to 3.");
-                }
-
                 switch (mainMenuChoice) {
                     case 1:
                         user.LogInUser();

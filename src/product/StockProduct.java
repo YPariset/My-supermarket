@@ -46,7 +46,7 @@ public class StockProduct {
             }
         System.out.println(result);
         System.out.println("0 to return ");
-        System.out.println(">");
+        System.out.print(">");
         return productStockList;
         }
 

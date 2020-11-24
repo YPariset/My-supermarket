@@ -36,9 +36,6 @@ public class AdminMenu implements Menu {
                         MainMenu.product.getProductStock();
                         int choiceProductList = scan.nextInt();
 
-                        if (administratorChoice != 1 || administratorChoice !=2 || administratorChoice != 3){
-                            System.out.println("Please enter a number between 1 to 3");
-                        }
 
                         switch (choiceProductList) {
                             case 0:
