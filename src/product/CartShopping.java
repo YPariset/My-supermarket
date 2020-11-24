@@ -1,7 +1,9 @@
 package product;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class CartShopping {
 
@@ -9,11 +11,10 @@ public class CartShopping {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    protected static ArrayList<Product> shoppingList = null;
+    public static ArrayList<Product> shoppingList;
 
-    public Scanner input = new Scanner(System.in);
-
-
+    public static StockProduct stockProduct = new StockProduct();
+    public static CartShopping cartShopping = new CartShopping();
 
     /****************************************************/
     /***********           Constructor        ***********/
@@ -21,8 +22,6 @@ public class CartShopping {
 
     public CartShopping(){
         shoppingList = new ArrayList<>();
-
-        shoppingList.add(new Product("chocolate",20,1.99f,1));
     }
 
     /****************************************************/
@@ -53,6 +52,26 @@ public class CartShopping {
         Product addProduct = new Product(name, quantity, price, id);
         shoppingList.add(addProduct);
     }
+
+    public static void addInputToCart() {
+
+        int chooseId = 0;
+        int chooseQuantity = 0;
+
+        try {
+            System.out.println("Add to your cart your chosen products by tipping in the matching Id ");
+            Scanner scanInputId = new Scanner(System.in);
+            chooseId = scanInputId.nextInt();
+            System.out.println("Choose a quantity : ");
+            chooseQuantity = scanInputId.nextInt();
+
+        }catch(InputMismatchException e){
+            System.out.println("bad key ");
+        }
+        stockProduct.choseProductById(chooseId,chooseQuantity);
+
+    }
+
 
 
 

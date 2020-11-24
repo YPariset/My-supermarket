@@ -1,6 +1,7 @@
 package product;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class StockProduct {
@@ -37,13 +38,13 @@ public class StockProduct {
     /***********            Methods           ***********/
     /****************************************************/
 
-    public ArrayList<Product> getProductStock() {
+    public static ArrayList<Product> getProductStock() {
         String result = "";
         System.out.println("### Product List ###");
         System.out.println(" ");
         for (Product myProduct : productStockList) {
             result += "Name: " + myProduct.getProduct()+ " | Quantity: " + myProduct.getQuantity() +
-                    " | Price: " + myProduct.getPrice() + "€ \n";
+                    " | Price: " + myProduct.getPrice() + "€" + " | ID: " + myProduct.getId() + "\n";
             }
         System.out.println(result);
         System.out.println("0 to return ");
@@ -67,6 +68,17 @@ public class StockProduct {
 
         Product myProduct = new Product(myProductName,myProductQuantity,myProductPrice);
         productStockList.add(myProduct);
+    }
+
+    public static void choseProductById(int scanId, int scanQuantity){
+        for(Product elements : productStockList){
+            if(scanId == elements.getId()){
+                System.out.println("this product " + elements.getProduct() + " has been added to cart\n");
+                CartShopping.addToCart(elements.getProduct(), scanQuantity, elements.getPrice(), elements.getId());
+                int updateQuantity = elements.getQuantity() - scanQuantity;
+                elements.setQuantity(updateQuantity);
+            }
+        }
     }
 
     public boolean isAvailable(Product itemToFind){

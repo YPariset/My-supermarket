@@ -1,12 +1,15 @@
 package consolePrompt;
 
 import product.CartShopping;
+import product.StockProduct;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class UserMenu implements Menu {
+import static product.CartShopping.cartShopping;
+import static product.CartShopping.stockProduct;
 
+public class UserMenu implements Menu {
 
     /****************************************************/
     /***********            Methods           ***********/
@@ -32,14 +35,15 @@ public class UserMenu implements Menu {
                 System.out.println(" 3 ) Logout ");
                 System.out.print(">");
                 int choiceClient = scan.nextInt();
-                CartShopping.displayCart();
+                stockProduct.getProductStock();
+                cartShopping.addInputToCart();
+                cartShopping.displayCart();
 
 
                 switch (choiceClient) {
                     case 1:
                         // List Product
                         MainMenu.product.getProductStock();
-
                         int choiceProductList = scan.nextInt();
 
                         switch (choiceProductList) {
@@ -51,13 +55,14 @@ public class UserMenu implements Menu {
                     case 2:
                         // Add to cart
                         System.out.println(" ");
-                        System.out.println("Product: ");
-                        System.out.println("Total Price: " + ""); // add final price
                         System.out.println("What do you want to do? ");
                         System.out.println(" 1 ) Add to cart ");
                         System.out.println(" 2 ) Return ");
                         System.out.print(">");
                         int cart = scan.nextInt();
+
+
+
 
                         switch (cart) {
                             case 1:
@@ -96,4 +101,5 @@ public class UserMenu implements Menu {
             }
         }
     }
+
 }
