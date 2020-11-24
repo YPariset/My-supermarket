@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StockProduct {
+
     /****************************************************/
     /***********           Attributes         ***********/
     /****************************************************/
 
-    private ArrayList<Product> productStockList;
+    public static ArrayList<Product> productStockList;
     public Scanner input = new Scanner(System.in);
 
     /****************************************************/
@@ -18,11 +19,11 @@ public class StockProduct {
     public StockProduct(){
         productStockList = new ArrayList<Product>();
 
-        Product baguette = new Product("Baguette",30,.7f);
-        Product jam = new Product("Jam",20,2.3F);
-        Product banana = new Product("Banana",40,1.99f);
-        Product toiletPaper = new Product("Toilet Paper",80,2.99f);
-        Product pineapplePizza = new Product("Pineapple Pizza", 12, 5.99f);
+        Product baguette = new Product("Baguette",30,.7f, 1);
+        Product jam = new Product("Jam",20,2.3F, 2);
+        Product banana = new Product("Banana",40,1.99f, 3);
+        Product toiletPaper = new Product("Toilet Paper",80,2.99f, 4);
+        Product pineapplePizza = new Product("Pineapple Pizza", 12, 5.99f, 5);
 
         productStockList.add(baguette);
         productStockList.add(banana);

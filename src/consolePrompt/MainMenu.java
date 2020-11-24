@@ -29,9 +29,6 @@ public class MainMenu implements Menu {
 
         while (!inProgress) {
             try {
-                AdminMenu adminMenu = new AdminMenu();
-
-                UserMenu userMenu = new UserMenu();
                 Scanner scan = new Scanner(System.in);
 
                 // Main Menu

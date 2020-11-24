@@ -41,10 +41,8 @@ public class User {
         User user1 = new User("tommy", "tommy");
         User user2 = new User("phil2", "phil2");
 
-
         userList.add(user1);
         userList.add(user2);
-
 
         System.out.println("Please enter your username and your password \n ");
         System.out.println(" Username: ");
@@ -79,6 +77,8 @@ public class User {
         System.out.println(" Password: ");
         System.out.print(">");
         String password = output.nextLine();
+
+
 
         for (int i = 0; i < userList.size(); i++) {
             User user = userList.get(i);

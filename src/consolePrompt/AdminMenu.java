@@ -50,6 +50,9 @@ public class AdminMenu implements Menu {
                         show();
                         break;
 
+    /****************************************************/
+    /***********            Methods           ***********/
+    /****************************************************/
 
                     case 3:
                         // return in the MainMenu

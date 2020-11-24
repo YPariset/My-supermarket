@@ -1,5 +1,7 @@
 package consolePrompt;
 
+import product.CartShopping;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -18,8 +20,6 @@ public class UserMenu implements Menu {
         while (!inProgress) {
 
             try {
-
-
                 Scanner scan = new Scanner(System.in);
 
                 // Client
@@ -28,10 +28,11 @@ public class UserMenu implements Menu {
                 System.out.println("--------------------------");
                 System.out.println("What do you want to do");
                 System.out.println(" 1 ) List products");
-                System.out.println(" 2 ) My cart ");
+                System.out.println(" 2 ) Add to cart ");
                 System.out.println(" 3 ) Logout ");
                 System.out.print(">");
                 int choiceClient = scan.nextInt();
+                CartShopping.displayCart();
 
 
                 switch (choiceClient) {
@@ -48,12 +49,12 @@ public class UserMenu implements Menu {
                         }
 
                     case 2:
-                        // My cart
+                        // Add to cart
                         System.out.println(" ");
                         System.out.println("Product: ");
                         System.out.println("Total Price: " + ""); // add final price
                         System.out.println("What do you want to do? ");
-                        System.out.println(" 1 ) Buy cart ");
+                        System.out.println(" 1 ) Add to cart ");
                         System.out.println(" 2 ) Return ");
                         System.out.print(">");
                         int cart = scan.nextInt();
