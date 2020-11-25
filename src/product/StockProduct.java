@@ -39,6 +39,7 @@ public class StockProduct {
 
     }
 
+
     /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
@@ -82,27 +83,34 @@ public class StockProduct {
         }
     }
 
-    public boolean isAvailable(Product itemToFind){
+    //check if the Id entered does match any Id of Items stocked
+    public boolean isAvailable(int idRef) {
         boolean found = false;
-        if(productStockList.contains(itemToFind)){
-            System.out.println(itemToFind + " is Available.");
-            found = true;
-        }else {
-            System.out.println(itemToFind + " is not Available.");
-            found = false;
+        for (int i = 0; i < productStockList.size(); i++) {
+            Product p = getProductStock().get(i);
+            if (p.getId() == idRef){
+                 found = true;
+            return found;
+            }
+
         }
         return found;
     }
-    public void checkQuantity (Product itemQuantityToFind){
-        int quantityDesired;
-        if (isAvailable(itemQuantityToFind)){
-            System.out.println("Enter the quantity desired: ");
-            quantityDesired = input.nextInt();
-            if(quantityDesired < itemQuantityToFind.getQuantity()){
-                System.out.println("Item quantity available.");
-
+    public boolean checkQuantity (int quantityDesired) {
+        boolean isQuantity = false;
+        for (int i = 0; i < productStockList.size(); i++) {
+            Product p = getProductStock().get(i);
+            if (p.getQuantity()>= quantityDesired) {
+                isQuantity = true;
+                return isQuantity;
             }
+           else {
+                System.out.println("Not enough quantity, there is only: "+ p.getQuantity()+ " left.");
+               isQuantity = false;
+               return isQuantity;
+           }
         }
+        return isQuantity;
     }
 
 
@@ -113,6 +121,6 @@ public class StockProduct {
 
 
 
-    }
+}
 
 

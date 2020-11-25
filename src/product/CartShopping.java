@@ -70,6 +70,7 @@ public class CartShopping {
 
         int chooseId = 0;
         int chooseQuantity = 0;
+        boolean existNot = false;
 
         try {
             System.out.println("Add to your cart your chosen products by typing in the matching ID ");
@@ -77,6 +78,7 @@ public class CartShopping {
             chooseId = scanInputId.nextInt();
             System.out.println("Choose a quantity : ");
             chooseQuantity = scanInputId.nextInt();
+
 
         }catch(InputMismatchException e){
             System.out.println("bad key ");
