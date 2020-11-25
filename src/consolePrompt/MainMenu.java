@@ -1,7 +1,6 @@
 package consolePrompt;
 
 import product.StockProduct;
-import user.Admin;
 import user.User;
 
 import java.util.ArrayList;

@@ -11,9 +11,6 @@ public class AdminMenu implements Menu {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    MainMenu mainMenu = new MainMenu();
-    User user = new User("","");
-
     @Override
     public void show() {
         Boolean inProgress = false;

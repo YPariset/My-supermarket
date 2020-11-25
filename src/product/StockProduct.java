@@ -95,23 +95,18 @@ public class StockProduct {
         }
         return found;
     }
+
     public boolean checkQuantity (int quantityDesired) {
         boolean isQuantity = false;
-        int i;
-        for ( i = 0; i < getProductStockList().size(); i++) {
-            Product p = getProductStockList().get(i);
-            if (p.getQuantity()>= quantityDesired) {
+        for (Product elements : productStockList) {
+            if (elements.getQuantity() >= quantityDesired) {
                 isQuantity = true;
                 return isQuantity;
-            }
-           else {
-                for (int j = 0; j < getProductStockList().size() ; j++) {
-                    System.out.println("Not enough quantity, there is only: " + p.getQuantity() + " left.");
-
-                }
+            } else {
                 isQuantity = false;
-               return isQuantity;
-           }
+                System.out.println("Not enough quantity, there is only: " + elements.getQuantity() + " left.");
+                return isQuantity;
+            }
         }
         return isQuantity;
     }
