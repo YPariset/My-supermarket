@@ -88,7 +88,10 @@ public class CartShopping {
         }catch(InputMismatchException e){
             System.out.println("bad key ");
         }
+    }
 
+    public void clearShoppingCart() {
+        shoppingList.removeAll(shoppingList);
     }
 
 
