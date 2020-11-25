@@ -70,20 +70,29 @@ public class CartShopping {
 
         int chooseId = 0;
         int chooseQuantity = 0;
-        boolean existNot = false;
+
 
         try {
             System.out.println("Add to your cart your chosen products by typing in the matching ID ");
             Scanner scanInputId = new Scanner(System.in);
             chooseId = scanInputId.nextInt();
-            System.out.println("Choose a quantity : ");
-            chooseQuantity = scanInputId.nextInt();
+            boolean existNot = stockProduct.isAvailable(stockProduct,chooseId);
+            if (existNot){
+                System.out.println("Choose a quantity : ");
+                chooseQuantity = scanInputId.nextInt();
 
+                if(!stockProduct.checkQuantity(chooseQuantity)){
+                    System.out.println("Quantity too big");
+
+                }else
+                    stockProduct.choseProductById(chooseId,chooseQuantity);
+
+            }else
+                System.out.println("Wrong ID");
 
         }catch(InputMismatchException e){
             System.out.println("bad key ");
         }
-        stockProduct.choseProductById(chooseId,chooseQuantity);
 
     }
 
