@@ -53,10 +53,10 @@ public class CartShopping {
             if(shoppingList == null) {
                 System.out.println("Your cart is empty");
             }else {
-                System.out.println("product : " + elements.getProduct() + " || price: " + elements.getPrice() + " || quantity: " + elements.getQuantity());
+                System.out.println("product : " + elements.getProduct() + "|| price: " + elements.getPrice() + "|| quantity: " + elements.getQuantity()+ "\n"
+                        + " Montant total : " + getCartTotalAmount());
             }
         }
-        System.out.println(" Total amount :" + getCartTotalAmount()+ "\n");
     }
 
 
