@@ -12,5 +12,8 @@ public class Main {
 
         Interface newInterface = new Interface();
         newInterface.setVisible( true );
+
+        //NewInterface newInterface = new NewInterface();
+        //newInterface.setVisible(true);
     }
 }
