@@ -32,6 +32,9 @@ public class Product {
         this.price = price;
         this.id = id;
     }
+    public Product(int id){
+        this.id = id;
+    }
 
     /****************************************************/
     /***********            Methods           ***********/

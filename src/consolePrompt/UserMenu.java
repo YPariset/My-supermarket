@@ -87,7 +87,7 @@ public class UserMenu implements Menu {
                                 int payed = scan.nextInt();
                                 switch (payed) {
                                     case 1:
-                                       //remove
+                                       //remove => genere objet order
                                         System.out.println("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
                                         break;
                                     case 0:

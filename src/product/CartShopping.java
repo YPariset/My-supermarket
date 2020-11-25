@@ -77,17 +77,12 @@ public class CartShopping {
             Scanner scanInputId = new Scanner(System.in);
             chooseId = scanInputId.nextInt();
             boolean existNot = stockProduct.isAvailable(stockProduct,chooseId);
-            /*if (existNot){
+            if (existNot){
                 System.out.println("Choose a quantity : ");
                 chooseQuantity = scanInputId.nextInt();
+                stockProduct.choseProductById(chooseId,chooseQuantity);
 
-                if(!stockProduct.checkQuantity(chooseQuantity)){
-                    System.out.println("Quantity too big");
-
-                }else
-                    stockProduct.choseProductById(chooseId,chooseQuantity);
-
-            }else*/
+            }else
                 System.out.println("Wrong ID");
 
         }catch(InputMismatchException e){

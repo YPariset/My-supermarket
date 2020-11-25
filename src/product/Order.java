@@ -1,5 +1,9 @@
 package product;
 
+import user.User;
+
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Order {
@@ -8,29 +12,35 @@ public class Order {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    public static int orderID;
-    public static HashMap<Integer, Product> order;
+    protected User userLambda;
+    protected CartShopping shoppingListLambda;
+    protected int totalAmount;
+    public int orderID;
+    public static ArrayList<Order> orderList = null;
 
     /****************************************************/
     /***********           Constructor        ***********/
     /****************************************************/
 
-    public Order() {
-        this.order = new HashMap<Integer, Product>() ;
+    public Order(User nameUser, CartShopping shoppingListUser, int totalAmount, int orderID) {
+        this.userLambda = nameUser;
+        this.shoppingListLambda = shoppingListUser;
+        this.totalAmount = totalAmount;
+        this.orderID = orderID;
     }
 
     /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
 
-    public static  void createOrder(CartShopping shop){
-        for(Product itemCart : shop.shoppingList) {
-            order.put(orderID, itemCart);
-        }
+    public ArrayList<Order> addOrder(Order myOrder){
+        orderList.add(myOrder);
+        return orderList;
     }
 
 
-    public void displayOrder() {
+
+   /* public void displayOrder() {
         order.entrySet().forEach((line) -> {
             System.out.println(line.getKey() + " - " + line.getValue().getProduct());
         });
@@ -43,25 +53,25 @@ public class Order {
     public String displayOrderToString() {
         return "";
     }
-
+*/
     /****************************************************/
     /***********            Getters           ***********/
     /****************************************************/
 
-    public int getIdOrder() {
+  /*  public int getIdOrder() {
         return orderID;
     }
 
     public HashMap<Integer, Product> getOrder() {
         return order;
-    }
+    }*/
 
     /****************************************************/
     /***********            Setters           ***********/
     /****************************************************/
 
-    public void setOrder(HashMap<Integer, Product> order) {
+   /* public void setOrder(HashMap<Integer, Product> order) {
         this.order = order;
-    }
+    }*/
 
 }
