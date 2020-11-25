@@ -29,7 +29,6 @@ public class Order {
         }
     }
 
-
     public void displayOrder() {
         order.entrySet().forEach((line) -> {
             System.out.println(line.getKey() + " - " + line.getValue().getProduct());

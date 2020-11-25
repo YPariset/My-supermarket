@@ -1,5 +1,7 @@
 package consolePrompt;
 
+import product.CartShopping;
+import product.Order;
 import user.User;
 
 import java.util.InputMismatchException;
@@ -10,6 +12,9 @@ public class AdminMenu implements Menu {
     /****************************************************/
     /*************** Attributes/Instances ***************/
     /****************************************************/
+
+    Order orders = new Order();
+    CartShopping cartShopping = new CartShopping();
 
     @Override
     public void show() {
@@ -53,9 +58,16 @@ public class AdminMenu implements Menu {
                         break;
 
                     case 3:
-                        for( User element : User.userList ) {
-                            System.out.println(element.getUsername());
-                        }
+                        int idOrder = 1;
+
+                        orders.generateId(idOrder);
+
+                        orders.createOrder(cartShopping);
+                        orders.displayOrder();
+
+                        cartShopping.clearShoppingCart();
+
+                        //idOrder+= 1;
                         break;
                     case 4:
                         MainMenu mainMenu = new MainMenu();
