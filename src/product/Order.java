@@ -14,7 +14,7 @@ public class Order {
 
     protected User userLambda;
     protected CartShopping shoppingListLambda;
-    protected int totalAmount;
+    protected float totalAmount;
     public int orderID;
     public static ArrayList<Order> orderList = null;
 
@@ -22,14 +22,14 @@ public class Order {
     /***********           Constructor        ***********/
     /****************************************************/
 
-    public Order(User nameUser, CartShopping shoppingListUser, int totalAmount, int orderID) {
+    public Order(User nameUser, CartShopping shoppingListUser, float totalAmount, int orderID) {
         this.userLambda = nameUser;
         this.shoppingListLambda = shoppingListUser;
         this.totalAmount = totalAmount;
         this.orderID = orderID;
     }
 
-    /****************************************************/
+/****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
 
@@ -37,34 +37,39 @@ public class Order {
         orderList.add(myOrder);
         return orderList;
     }
-
-
-
-   /* public void displayOrder() {
-        order.entrySet().forEach((line) -> {
-            System.out.println(line.getKey() + " - " + line.getValue().getProduct());
-        });
+    public ArrayList<Order> getOrderList(){
+        String result = "";
+        System.out.println("### Order List ###");
+        for(Order myOrder : orderList){
+            result += "Name" + myOrder.getUserLambda() + " | Shopping List : "+ myOrder.getShoppingListLambda() +
+                    " | Total Amount: "+ myOrder.getTotalAmount() + " | ID Order" + myOrder.getOrderID();
+        }
+        System.out.println(result);
+        return orderList;
     }
 
-    public static void generateId(int idGenerated) {
-        orderID = idGenerated;
-    }
 
-    public String displayOrderToString() {
-        return "";
-    }
-*/
+
     /****************************************************/
     /***********            Getters           ***********/
     /****************************************************/
 
-  /*  public int getIdOrder() {
+    public User getUserLambda() {
+        return userLambda;
+    }
+
+    public CartShopping getShoppingListLambda() {
+        return shoppingListLambda;
+    }
+
+    public float getTotalAmount() {
+        return totalAmount;
+    }
+
+    public int getOrderID() {
         return orderID;
     }
 
-    public HashMap<Integer, Product> getOrder() {
-        return order;
-    }*/
 
     /****************************************************/
     /***********            Setters           ***********/

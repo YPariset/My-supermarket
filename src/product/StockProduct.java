@@ -104,11 +104,11 @@ public class StockProduct {
             if (elements.getId() == productID) {
                 product = elements;
             }
-            if (product.getQuantity() >= quantityDesired) {
-                quantityCheck = true;
-            } else {
-                quantityCheck = false;
-            }
+        }
+        if (product.getQuantity() >= quantityDesired) {
+            quantityCheck = true;
+        } else {
+            quantityCheck = false;
         }
         return quantityCheck;
     }
