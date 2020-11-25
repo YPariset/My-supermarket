@@ -72,6 +72,7 @@ public class Interface extends JFrame {
         MainMenu.add(new JButton("ENTER"));
 
         // Menu Log in
+        JLabel applicationTitle = new JLabel("Pineapple Supermarket");
         logInCHoice.add(new JLabel("Please enter your user ID"));
         logInCHoice.add(new JLabel("Username : "));
         JTextField userNameText = new JTextField();
@@ -87,6 +88,7 @@ public class Interface extends JFrame {
 
 
         // Panel Client Interface
+        // add application Title
         firstClientInterface.add(new JLabel("Client interface "));
         JButton products = new JButton("PRODUCTS");
         JButton addProductsCart = new JButton("ADD PRODUCTS TO CART");
@@ -100,6 +102,7 @@ public class Interface extends JFrame {
         buttonGroupClien.add(logout);
 
         // Panel Admin Interface when Admin log
+        // add application Title
         JButton productAdmin = new JButton("PRODUCT LIST");
         JButton addProductAdmin = new JButton("ADD A PRODUCT");
         JButton seeClientOrder = new JButton("SEE CLIENT'S ORDER");
@@ -110,19 +113,49 @@ public class Interface extends JFrame {
         buttonGroupAdmin.add(seeClientOrder);
         buttonGroupAdmin.add(logout);
 
-        // Panel product List - choix 1 - Admin interface
+        // Admin interface
+        // product List - choix 1 - Admin interface
+
+        // add application Title
         JTextArea productLabel = new JTextArea(20, 28);
+        // add "retour" button
 
-        // Panel add product - choice 2 - Admin interface
+        // add product - choice 2 - Admin interface
+        JLabel addProduct = new JLabel("Enter a new product name : ");
+        JTextField addProductText = new JTextField();
 
-
-
-
-
-
-
+        // See client's order - choice 3 - admin interface
 
 
+        // Log out - choice 4 - admin interface
+
+
+        // Client Interface
+        //
+        JButton productListClient = new JButton("Product List");
+        JButton addProductToCartClient = new JButton("Add product to cart");
+        JButton seeCartClient = new JButton("See cart");
+        // add log out button
+
+        // product List - choix 1 - Client interface
+        // add ProductLabel
+        JLabel addProductToCart = new JLabel("Add to your cart your chosen products by typing in the matching ID");
+        JTextField addProductToChartQuantity = new JTextField();
+        addProductToChartQuantity.setColumns(7);
+
+        JLabel addProductToCartAdded = new JLabel("Added to cart"); //+ productName + quantity
+        JLabel addProductToCartPrice = new JLabel("Total amount : "); // + total price
+
+        JButton toOrder = new JButton("ORDER");
+        JButton toReturn = new JButton("RETURN");
+
+        // If order
+        JLabel confirmPurchases = new JLabel("Do you confirm your purchases ?");
+        JButton pruchasesOk = new JButton("CONFIRM");
+        JButton pruchasesCancel = new JButton("CANCEL");
+
+        // If order confirm
+        JLabel purchasesSend = new JLabel("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
 
 
         /*
@@ -163,19 +196,6 @@ public class Interface extends JFrame {
 
         });
 
-         */
-
-
-
-
-        // Panel Client Interface
-        JLabel clientInterface = new JLabel();
-        clientInterface.setIcon(new ImageIcon("/Users/paulmarechal/Desktop/Market/MainMenu.png"));
-        clientInterface.setText("Pineapple Supermarket");
-        clientInterface.add(new JButton("Products list"));
-        clientInterface.add(new JButton("Add to cart"));
-        clientInterface.add(new JButton("Logout"));
-
 
         // Button Products
         JButton baguette = new JButton("Baguette", new ImageIcon("/Users/paulmarechal/Desktop/Market/baguette.png"));
@@ -210,15 +230,10 @@ public class Interface extends JFrame {
             }
         });
 
+         */
 
-        // Product List
-        JLabel productList = new JLabel();
-        productList.setIcon(new ImageIcon("/Users/paulmarechal/Desktop/Market/MainMenu.png"));
-        productList.setText("Pineapple Supermarket");
-        productList.add(getContentPane().add(baguette));
-        add(productList);
-        productList.setVisible(true);
-        revalidate();
+
+
 
     }
 }

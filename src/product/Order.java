@@ -13,7 +13,7 @@ public class Order {
     /****************************************************/
 
     protected User userLambda;
-    protected CartShopping shoppingListLambda;
+    protected CartShopping shoppingCart;
     protected float totalAmount;
     public int orderID;
     public static ArrayList<Order> orderList = null;
@@ -24,7 +24,7 @@ public class Order {
 
     public Order(User nameUser, CartShopping shoppingListUser, float totalAmount, int orderID) {
         this.userLambda = nameUser;
-        this.shoppingListLambda = shoppingListUser;
+        this.shoppingCart = shoppingListUser;
         this.totalAmount = totalAmount;
         this.orderID = orderID;
     }
@@ -59,7 +59,7 @@ public class Order {
     }
 
     public CartShopping getShoppingListLambda() {
-        return shoppingListLambda;
+        return shoppingCart;
     }
 
     public float getTotalAmount() {
