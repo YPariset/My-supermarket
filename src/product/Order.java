@@ -2,9 +2,8 @@ package product;
 
 import user.User;
 
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 public class Order {
 
@@ -16,7 +15,7 @@ public class Order {
     protected CartShopping shoppingCart;
     protected float totalAmount;
     public int orderID;
-    public static ArrayList<Order> orderList = null;
+    public static ArrayList<Order> orderList;
 
     /****************************************************/
     /***********           Constructor        ***********/
@@ -28,20 +27,19 @@ public class Order {
         this.totalAmount = totalAmount;
         this.orderID = orderID;
     }
+    public Order(){
+
+    }
 
 /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
 
-    public ArrayList<Order> addOrder(Order myOrder){
-        orderList.add(myOrder);
-        return orderList;
-    }
-    public ArrayList<Order> getOrderList(){
+    public  ArrayList<Order> getOrderList(){
         String result = "";
         System.out.println("### Order List ###");
         for(Order myOrder : orderList){
-            result += "Name" + myOrder.getUserLambda() + " | Shopping List : "+ myOrder.getShoppingListLambda() +
+            result += "Name" + myOrder.getUserLambda() + " | Shopping List : "+ myOrder.getShoppingCart() +
                     " | Total Amount: "+ myOrder.getTotalAmount() + " | ID Order" + myOrder.getOrderID();
         }
         System.out.println(result);
@@ -58,7 +56,7 @@ public class Order {
         return userLambda;
     }
 
-    public CartShopping getShoppingListLambda() {
+    public CartShopping getShoppingCart() {
         return shoppingCart;
     }
 
