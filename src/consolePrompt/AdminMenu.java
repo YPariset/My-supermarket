@@ -13,7 +13,7 @@ public class AdminMenu implements Menu {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    Order orders = new Order();
+    //Order orders = new Order();
     CartShopping cartShopping = new CartShopping();
 
     @Override
@@ -58,16 +58,11 @@ public class AdminMenu implements Menu {
                         break;
 
                     case 3:
-                        int idOrder = 1;
+                        /*
+                        for( User element : User.userList ) {
+                            System.out.println(element.getUsername());
+                        }*/
 
-                        orders.generateId(idOrder);
-
-                        orders.createOrder(cartShopping);
-                        orders.displayOrder();
-
-                        cartShopping.clearShoppingCart();
-
-                        //idOrder+= 1;
                         break;
                     case 4:
                         MainMenu mainMenu = new MainMenu();

@@ -80,7 +80,12 @@ public class CartShopping {
             if (existNot){
                 System.out.println("Choose a quantity : ");
                 chooseQuantity = scanInputId.nextInt();
-                stockProduct.choseProductById(chooseId,chooseQuantity);
+                if (!stockProduct.checkQuantity(chooseQuantity, chooseId)) {
+                    System.out.println("Quantity not valid");
+                } else {
+                    stockProduct.choseProductById(chooseId,chooseQuantity);
+                }
+
 
             }else
                 System.out.println("Wrong ID");
