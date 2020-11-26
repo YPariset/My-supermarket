@@ -57,18 +57,18 @@ public class StockProduct {
         }
 
 
-    public void addProduct(){
+    public void addProduct(String name, int quantity, int price, int id ){
 
-        System.out.println("Enter new product name: ");
+        /*System.out.println("Enter new product name: ");
         myProductName = input.nextLine();
         System.out.println("Enter a quantity: ");
         myProductQuantity = input.nextInt();
         System.out.println("Enter a price: ");
         myProductPrice = input.nextFloat();
         System.out.println("Enter an ID: ");
-        myProductID = input.nextInt();
+        myProductID = input.nextInt();*/
 
-        Product myProduct = new Product(myProductName,myProductQuantity,myProductPrice, myProductID);
+        Product myProduct = new Product(name,quantity,price,id);
         productStockList.add(myProduct);
     }
 

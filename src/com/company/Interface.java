@@ -6,8 +6,6 @@ import product.Order;
 import product.StockProduct;
 import user.User;
 
-import javax.imageio.ImageIO;
-import javax.naming.NamingEnumeration;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -51,12 +49,6 @@ public class Interface extends JFrame {
         JPanel paneMain = new JPanel();
         JPanel paneClient = new JPanel();
         JPanel paneAdmin = new JPanel();
-
-        //setContentPane(paneMain);
-        //paneMain.add(new JLabel(new ImageIcon("/Users/paulmarechal/IdeaProjects/My-supermarket/src/Picture/MainMenu.png")));
-
-        //paneClient.setBackground(Color.green);
-
 
         /***********************************************************/
         /************** Configuration of Layout ********************/
@@ -161,8 +153,40 @@ public class Interface extends JFrame {
         JTextArea resultArea = new JTextArea(25,30);
         JButton logoutAdmin = new JButton("Logout");
 
-        //Ne regarde pas ça Pierre-Henri, promis le reste c'est bien !
+        JButton confirmButton = new JButton("Confirm");
+        confirmButton.setVisible(false);
 
+        JLabel labelNewName = new JLabel("Enter a new name: ");
+        labelNewName.setVisible(false);
+
+        JTextField textNewName = new JTextField();
+        textNewName.setColumns(35);
+        textNewName.setVisible(false);
+
+
+        JLabel labelQuantity = new JLabel("Enter a quantity:    ");
+        labelQuantity.setVisible(false);
+
+        JTextField textQuantity = new JTextField();
+        textQuantity.setColumns(35);
+        textQuantity.setVisible(false);
+
+        JLabel labelPrice = new JLabel("Enter a price:         ");
+        labelPrice.setVisible(false);
+
+        JTextField textPrice = new JTextField();
+        textPrice.setColumns(35);
+        textPrice.setVisible(false);
+
+        JLabel labelID = new JLabel("Enter an ID:           ");
+        labelID.setVisible(false);
+
+        JTextField textID = new JTextField();
+        textID.setColumns(35);
+        textID.setVisible(false);
+
+
+        //Ne regarde pas ça Pierre-Henri, promis le reste c'est bien !
         JLabel ghost = new JLabel("                                                    ");
         JLabel ghost0 = new JLabel("<html><h1><br>");
         JLabel ghost1 = new JLabel("                                            ");
@@ -171,6 +195,7 @@ public class Interface extends JFrame {
         JLabel ghost4 = new JLabel("                                ");
         JLabel ghost5 = new JLabel("<html><h1><br><br>");
         JLabel ghost6 = new JLabel("                        ");
+
 
 
         /***********************************************************/
@@ -227,9 +252,18 @@ public class Interface extends JFrame {
         paneAdmin.add(listOrderButton);
         paneAdmin.add(ghost3);
         paneAdmin.add(resultArea);
+        paneAdmin.add(labelNewName);
+        paneAdmin.add(textNewName);
+        paneAdmin.add(labelQuantity);
+        paneAdmin.add(textQuantity);
+        paneAdmin.add(labelPrice);
+        paneAdmin.add(textPrice);
+        paneAdmin.add(labelID);
+        paneAdmin.add(textID);
         paneAdmin.add(ghost4);
         paneAdmin.add(ghost5);
         paneAdmin.add(ghost6);
+        paneAdmin.add(confirmButton);
         paneAdmin.add(logoutAdmin);
 
 
@@ -237,7 +271,7 @@ public class Interface extends JFrame {
         /****************** User actions management ****************/
         /***********************************************************/
 
-        setContentPane(paneClient);
+        setContentPane(paneAdmin);
         revalidate();
 
         // Enter button
@@ -292,13 +326,7 @@ public class Interface extends JFrame {
             }
         });
 
-        listProductsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                myStock.getProductStock(resultArea);
 
-            }
-        });
         // CLIENTPANE => see product in stock button
         products.addActionListener(new ActionListener() {
             @Override
@@ -334,79 +362,69 @@ public class Interface extends JFrame {
             }
         });
 
+        listProductsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resultArea.setVisible(true);
+                ghost3.setVisible(true);
+                labelNewName.setVisible(false);
+                textNewName.setVisible(false);
+                labelQuantity.setVisible(false);
+                textQuantity.setVisible(false);
+                labelPrice.setVisible(false);
+                textPrice.setVisible(false);
+                labelID.setVisible(false);
+                textID.setVisible(false);
+                confirmButton.setVisible(false);
+                myStock.getProductStock(resultArea);
+                revalidate();
+
+            }
+        });
+
+        addProductButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resultArea.setVisible(false);
+                ghost3.setVisible(false);
+                labelNewName.setVisible(true);
+                textNewName.setVisible(true);
+                labelQuantity.setVisible(true);
+                textQuantity.setVisible(true);
+                labelPrice.setVisible(true);
+                textPrice.setVisible(true);
+                labelID.setVisible(true);
+                textID.setVisible(true);
+                confirmButton.setVisible(true);
+                revalidate();
+
+
+            }
 
 
 
+        });
 
+        confirmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                if (textNewName.getText().isEmpty() || textQuantity.getText().isEmpty() || textPrice.getText().isEmpty() || textID.getText().isEmpty()) {
+                    //labelConfirm.setVisible(false);
+                    //labelFailure.setVisible(true);
+                    JOptionPane.showMessageDialog(null, "Uh-oh!", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    //labelConfirm.setVisible(true);
+                    //labelFailure.setVisible(false);
+                    myStock.addProduct(textNewName.getText(), Integer.parseInt(textQuantity.getText()), Integer.parseInt(textPrice.getText()), Integer.parseInt(textID.getText()));
+                }
+                textNewName.setText("");
+                textQuantity.setText("");
+                textPrice.setText("");
+                textID.setText("");
 
-
-
-        /*
-        enterButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        setContentPane(paneClient);
-                        revalidate();
-                    }
-
-                });
-         */
-
-
-
-
-
-       /*
-        // product List - choix 1 - Admin interface
-
-        // add application Title
-        JTextArea productLabel = new JTextArea(20, 28);
-        // add "retour" button
-
-        // add product - choice 2 - Admin interface
-        JLabel addProduct = new JLabel("Enter a new product name : ");
-        JTextField addProductText = new JTextField();
-
-        // See client's order - choice 3 - admin interface
-
-
-        // Log out - choice 4 - admin interface
-
-        paneMain.add(new JButton("Hello"));
-
-
-        // Client Interface
-        //
-        JButton productListClient = new JButton("Product List");
-        JButton addProductToCartClient = new JButton("Add product to cart");
-        JButton seeCartClient = new JButton("See cart");
-        // add log out button
-
-        // product List - choix 1 - Client interface
-        // add ProductLabel
-        JLabel addProductToCart = new JLabel("Add to your cart your chosen products by typing in the matching ID");
-        JTextField addProductToChartQuantity = new JTextField();
-        addProductToChartQuantity.setColumns(7);
-
-        JLabel addProductToCartAdded = new JLabel("Added to cart"); //+ productName + quantity
-        JLabel addProductToCartPrice = new JLabel("Total amount : "); // + total price
-
-        JButton toOrder = new JButton("ORDER");
-        JButton toReturn = new JButton("RETURN");
-
-        // If order
-        JLabel confirmPurchases = new JLabel("Do you confirm your purchases ?");
-        JButton pruchasesOk = new JButton("CONFIRM");
-        JButton pruchasesCancel = new JButton("CANCEL");
-
-        // If order confirm
-        JLabel purchasesSend = new JLabel("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
-
-
-
-*/
-
+            }
+        });
     }
 }
 
