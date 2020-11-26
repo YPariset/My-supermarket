@@ -24,8 +24,8 @@ public class Admin extends User {
     /***********            Methods           ***********/
     /****************************************************/
 
-    @Override
-    public Menu getMenu() {
+
+    public static Menu getMenu() {
         return new AdminMenu();
     }
 

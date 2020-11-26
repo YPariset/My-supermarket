@@ -12,7 +12,7 @@ public class Order {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    protected JTextField userLambda;
+    protected String userLambda;
     protected CartShopping shoppingCart;
     protected String totalAmount;
     public int orderID;
@@ -22,29 +22,31 @@ public class Order {
     /***********           Constructor        ***********/
     /****************************************************/
 
-    public Order(JTextField nameUser, CartShopping shoppingListUser, String totalAmount, int orderID) {
+    public Order(String nameUser, CartShopping shoppingListUser, String totalAmount, int orderID) {
         this.userLambda = nameUser;
         this.shoppingCart = shoppingListUser;
         this.totalAmount = totalAmount;
         this.orderID = orderID;
     }
-    public Order(){
+
+    public Order() {
 
     }
 
-/****************************************************/
+
+    /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
 
-    public  ArrayList<Order> getOrderList(){
+    public void getOrderList(JTextArea resultArea){
         String result = "";
         System.out.println("### Order List ###");
         for(Order myOrder : orderList){
             result += "Name" + myOrder.getUserLambda() + " | Shopping List : "+ myOrder.getShoppingCart() +
                     " | Total Amount: "+ myOrder.getTotalAmount() + " | ID Order" + myOrder.getOrderID();
         }
-        System.out.println(result);
-        return orderList;
+        resultArea.setText(result);
+        //return orderList;
     }
 
 
@@ -53,7 +55,7 @@ public class Order {
     /***********            Getters           ***********/
     /****************************************************/
 
-    public JTextField getUserLambda() {
+    public String getUserLambda() {
         return userLambda;
     }
 

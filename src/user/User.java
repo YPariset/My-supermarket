@@ -94,7 +94,7 @@ public class User {
     /***********            Getters           ***********/
     /****************************************************/
 
-    public Menu getMenu() {
+    public static Menu getMenu() {
         return new UserMenu();
     }
 
