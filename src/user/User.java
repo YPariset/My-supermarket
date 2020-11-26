@@ -3,6 +3,7 @@ package user;
 import consolePrompt.Menu;
 import consolePrompt.UserMenu;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -30,7 +31,7 @@ public class User {
         this.username = username;
         this.password = password;
 
-        userList = new ArrayList<>();
+
     }
 
     /****************************************************/
@@ -73,6 +74,7 @@ public class User {
             break;
         }
     }
+
 
     public boolean authenticate(String username, String password) {
         return this.username.equals(username) && this.password.equals(password);
