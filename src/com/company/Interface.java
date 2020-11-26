@@ -4,14 +4,14 @@ import consolePrompt.AdminMenu;
 import consolePrompt.MainMenu;
 import product.Order;
 import product.StockProduct;
-import user.Admin;
 import user.User;
 
+import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.awt.event.KeyEvent;
 
 import static product.CartShopping.*;
 
@@ -20,9 +20,6 @@ public class Interface extends JFrame {
 
     protected static StockProduct product = new StockProduct();
     protected static User user = new User("", "");
-    protected  static ArrayList<User> userList = new ArrayList<User>();
-    ArrayList<User> adminList = new ArrayList<User>();
-
 
     public Interface() {
 
@@ -40,12 +37,7 @@ public class Interface extends JFrame {
         /********************************************************/
 
         // show
-        StockProduct myStock = new StockProduct(); // a voir car deux stockproduct different
-
-        User user1 = new User("guest", "guest");
-        Admin admin1 = new Admin("admin", "admin");
-        userList.add(user1);
-        adminList.add(admin1);
+        StockProduct myStock = new StockProduct();
 
         /***********************************************************/
         /***************** Configuration of JPanel *****************/
@@ -75,20 +67,32 @@ public class Interface extends JFrame {
         /***********************************************************/
 
         // PanelEnter
+
         JLabel enterSignature = new JLabel("<html><h1>------- Welcome to your -----<br>---- Pineapple Supermarket ----");
-        JButton enterAppButton = new JButton("<html><h1> - ENTER - ");
+        JLabel space9 = new JLabel("                                                                                                                                ");
+        JButton enterAppButton = new JButton("<html><h1> - ENTER - </h1></html>" + "press space");
+        JLabel space7 = new JLabel("<html><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+        enterAppButton.setMnemonic(KeyEvent.VK_ENTER);
+        JLabel pressSpace = new JLabel("press space to enter");
         paneEnter.setPreferredSize(new Dimension(450, 200));
         paneEnter.setFont(new Font("SCRIPT", Font.BOLD, 18));
 
         // PaneLogIN
-        JLabel marketSignature = new JLabel("<html><h1>--------- Pineapple Supermarket ---------");
-        JButton createAccount = new JButton("<html><h1>SIGN IN");
-        JButton logIn = new JButton("<html><h1>LOG IN");
-        JButton exitButton = new JButton("<html><h1>EXIT");
+        JLabel marketSignature = new JLabel("<html><h1>------- Pineapple Supermarket -------");
+        JLabel space0 = new JLabel("<html><br><br><br><br><br><br><br></html>");
+        JLabel space6 = new JLabel("<html><br><br><br><br><br>");
+        JButton createAccount = new JButton("SIGN IN");
+        JButton logIn = new JButton("LOG IN ");
+        JLabel space3 = new JLabel("                                        ");
+        JLabel space4 = new JLabel("<html><br><br><br><br><br>");
+        JButton exitButton = new JButton("EXIT");
+        JLabel space5 = new JLabel("<html><br><br><br><br><br>");
         JButton retourMainMenu = new JButton("RETOUR");
+        logIn.setMnemonic(KeyEvent.VK_ENTER);
         paneLogIn.setPreferredSize(new Dimension(450, 200));
         paneLogIn.setFont(new Font("SCRIPT", Font.BOLD, 18));
 
+        // Pane Sign In
         JLabel marketSignatur = new JLabel("<html><h1>--------- Pineapple Supermarket ---------");
         JLabel loginSignIn = new JLabel("            Login        ");
         JTextField loginText = new JTextField();
@@ -119,13 +123,13 @@ public class Interface extends JFrame {
         mainMenu.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-        JLabel enterUsername = new JLabel("<html><h2>Username : ");
+        JLabel enterUsername = new JLabel("Username : ");
         enterUsername.setPreferredSize(new Dimension(150, 20));
 
         JTextField userNameText = new JTextField();
         userNameText.setColumns(30);
 
-        JLabel enterPassword = new JLabel("<html><h2>Password : ");
+        JLabel enterPassword = new JLabel("Password : ");
         enterPassword.setPreferredSize(new Dimension(150, 20));
 
         JTextField userPassText = new JTextField();
@@ -135,36 +139,37 @@ public class Interface extends JFrame {
 
 
         // PanelClient
-        JLabel clientLabel = new JLabel("Client interface ", SwingConstants.CENTER);
-        clientLabel.setFont(new Font("Chalkdsuter", Font.CENTER_BASELINE, 20));
-        clientLabel.setForeground(Color.getHSBColor(7, 6, 7));
-        clientLabel.setPreferredSize(new Dimension(500, 80));
+        JLabel clientLabel = new JLabel("Client interface ",SwingConstants.CENTER);
+        clientLabel.setFont(new Font("Chalkdsuter",Font.CENTER_BASELINE,20));
+        clientLabel.setForeground(Color.getHSBColor(7,6,7));
+        clientLabel.setPreferredSize(new Dimension(500,80));
         JButton products = new JButton("PRODUCTS");
         JButton addProductsCart = new JButton("ADD PRODUCTS TO CART");
         JButton seeCart = new JButton("SEE CART");
         JLabel ghostSpace = new JLabel("");
-        ghostSpace.setPreferredSize(new Dimension(500, 70));
+        ghostSpace.setPreferredSize(new Dimension(500,70));
         JButton logout = new JButton("LOGOUT");
         JTextArea StockText = new JTextArea();
-        StockText.setPreferredSize(new Dimension(500, 200));
-        //Add to Cart
-        JLabel IDofProduct = new JLabel("Type ID of product wanted", SwingConstants.RIGHT);
-        IDofProduct.setPreferredSize(new Dimension(170, 50));
+        StockText.setPreferredSize(new Dimension(500,200));
+            //Add to Cart
+        JLabel IDofProduct = new JLabel("Type ID of product wanted",SwingConstants.RIGHT);
+        IDofProduct.setPreferredSize(new Dimension(170,50));
         IDofProduct.setVisible(false);
         JTextField addID = new JTextField();
-        addID.setPreferredSize(new Dimension(50, 40));
+        addID.setPreferredSize(new Dimension(50,40));
         addID.setVisible(false);
-        JLabel quantityDesired = new JLabel("Quantity", SwingConstants.RIGHT);
-        quantityDesired.setPreferredSize(new Dimension(100, 50));
+        JLabel quantityDesired = new JLabel("Quantity",SwingConstants.RIGHT);
+        quantityDesired.setPreferredSize(new Dimension(100,50));
         quantityDesired.setVisible(false);
         JTextField addQuantity = new JTextField();
-        addQuantity.setPreferredSize(new Dimension(50, 40));
+        addQuantity.setPreferredSize(new Dimension(50,40));
         addQuantity.setVisible(false);
-        JButton enterProductInCart = new JButton("ENTER");
-        enterProductInCart.setVisible(false);
+        JButton enter = new JButton("ENTER");
+        enter.setVisible(false);
         JTextArea myCart = new JTextArea();
-        myCart.setPreferredSize(new Dimension(500, 100));
+        myCart.setPreferredSize(new Dimension(500,100));
         myCart.setVisible(false);
+
 
 
         // PanelAdmin
@@ -174,7 +179,7 @@ public class Interface extends JFrame {
         JButton listProductsButton = new JButton("List Products");
         JButton addProductButton = new JButton("Add Product");
         JButton listOrderButton = new JButton("See clients order");
-        JTextArea resultArea = new JTextArea(25, 30);
+        JTextArea resultArea = new JTextArea(25,30);
         JButton logoutAdmin = new JButton("Logout");
 
         JButton confirmButton = new JButton("Confirm");
@@ -221,17 +226,31 @@ public class Interface extends JFrame {
         JLabel ghost6 = new JLabel("                        ");
 
 
+
         /***********************************************************/
         /**************** Add components in Panel ******************/
         /***********************************************************/
 
-
+        setContentPane(new JLabel(new ImageIcon("/Users/paulmarechal/IdeaProjects/My-supermarket/src/Picture/MainMenu.png")));
+        setLayout(new FlowLayout());
+        add(enterSignature);
+        add(enterAppButton);
+        add(space7);
+        /*
         paneEnter.add(enterSignature);
         paneEnter.add(enterAppButton);
+        paneEnter.add(space7);
+
+         */
 
         paneLogIn.add(marketSignature);
+        paneLogIn.add(space0);
+        paneLogIn.add(space4);
         paneLogIn.add(createAccount);
+        paneLogIn.add(space5);
         paneLogIn.add(logIn);
+        paneLogIn.add(space6);
+        paneLogIn.add(space4);
         paneLogIn.add(exitButton);
 
         paneSignIn.add(marketSignatur);
@@ -266,7 +285,7 @@ public class Interface extends JFrame {
         paneClient.add(addID);
         paneClient.add(quantityDesired);
         paneClient.add(addQuantity);
-        paneClient.add(enterProductInCart);
+        paneClient.add(enter);
         paneClient.add(myCart);
         paneClient.add(ghostSpace);
         paneClient.add(StockText);
@@ -302,13 +321,17 @@ public class Interface extends JFrame {
         /****************** User actions management ****************/
         /***********************************************************/
 
+        /*
         setContentPane(paneEnter);
         revalidate();
 
+         */
+
         // Enter button
+
         enterAppButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed( ActionEvent e ) {
                 setContentPane(paneLogIn);
                 revalidate();
             }
@@ -317,7 +340,7 @@ public class Interface extends JFrame {
         // Create Account button
         createAccount.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed( ActionEvent e ) {
                 setContentPane(paneSignIn);
                 revalidate();
             }
@@ -326,34 +349,16 @@ public class Interface extends JFrame {
         // Login button
         logIn.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed( ActionEvent e ) {
                 setContentPane(paneLogInUser);
                 revalidate();
             }
         });
-        enterApp.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (verifiedEnteredLogIn(loginUserText, passUserText, userList)) {
-                    setContentPane(paneClient);
-                    revalidate();
-
-                } else if (verifiedEnteredLogIn(loginUserText, passUserText, adminList)) {
-                    setContentPane(paneAdmin);
-                    revalidate();
-                } else {
-                    JOptionPane wrongLogIn = new JOptionPane();
-                    wrongLogIn.showMessageDialog(null, "Your log In or you MDP do not exist");
-                }
-
-            }
-        });
-
 
         // Exit button
         exitButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed( ActionEvent e ) {
                 setContentPane(paneEnter);
                 revalidate();
             }
@@ -361,7 +366,7 @@ public class Interface extends JFrame {
 
         returnMain.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed( ActionEvent e ) {
                 setContentPane(paneEnter);
                 revalidate();
             }
@@ -369,7 +374,7 @@ public class Interface extends JFrame {
 
         retourMain.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed( ActionEvent e ) {
                 setContentPane(paneEnter);
                 revalidate();
             }
@@ -393,17 +398,16 @@ public class Interface extends JFrame {
                 addID.setVisible(true);
                 quantityDesired.setVisible(true);
                 addQuantity.setVisible(true);
-                enterProductInCart.setVisible(true);
+                enter.setVisible(true);
                 myCart.setVisible(true);
             }
         });
-        enterProductInCart.addActionListener(new ActionListener() {
+        enter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cartShopping.addFieldToCart(addID, addQuantity);
+                cartShopping.addFieldToCart(addID,addQuantity);
                 cartShopping.displayCart(myCart);
                 myStock.getProductStock(StockText);
-                revalidate();
             }
         });
 
@@ -412,16 +416,16 @@ public class Interface extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane confirmYourPurchase = new JOptionPane();
-                int retour = confirmYourPurchase.showConfirmDialog(null, "Do you confirm your purchases ?",
-                        "### Cart ###", JOptionPane.OK_CANCEL_OPTION);
-                if (retour == 0) {
+                int retour = confirmYourPurchase.showConfirmDialog(null,"Do you confirm your purchases ?",
+                        "   CART   ",JOptionPane.OK_CANCEL_OPTION);
+                if (retour == 0 ){
                     cartShopping.displayCart(StockText);
-                    Order orderUser = new Order(userNameText.getText(), cartShopping, cartShopping.getCartTotalAmount(), 1);
+                    Order orderUser = new Order(userNameText.getText(), cartShopping,cartShopping.getCartTotalAmount(),1);
                     AdminMenu.myOrderList.addOrderToList(orderUser);
                     JOptionPane yourPurchase = new JOptionPane();
                     yourPurchase.showMessageDialog(null,
                             "Thanks to ordered in Pineapple Market ! You will receive your articles soon.",
-                            "You order", JOptionPane.PLAIN_MESSAGE);
+                            "You order",JOptionPane.PLAIN_MESSAGE);
                     cartShopping.clearShoppingCart();
                 }
             }
@@ -467,6 +471,7 @@ public class Interface extends JFrame {
             }
 
 
+
         });
 
         confirmButton.addActionListener(new ActionListener() {
@@ -491,21 +496,38 @@ public class Interface extends JFrame {
         });
 
 
-}
-    public boolean verifiedEnteredLogIn (JTextField myLogin, JTextField myMDP, ArrayList<User>myList){
-        boolean found = false;
-        for (User users: myList) {
-            if(users.getUsername().equals(myLogin.getText()) && users.getPassword().equals(myMDP.getText()) ){
-                found =true;
-               // JOptionPane wrongLogIn = new JOptionPane();
-                //wrongLogIn.showMessageDialog(null, "Your log In or you MDP do  exist"+found);
-            }else {
-                found = false;
-               // JOptionPane wrongLogIn = new JOptionPane();
-               // wrongLogIn.showMessageDialog(null, "Your log In or you MDP do not exist"+found);
+        enterApp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                if (loginUserText.getText().equals("admin") && passUserText.getText().equals("admin")) {
+                    // Entre dans admin panel
+                    setContentPane(paneAdmin);
+                    revalidate();
+                } else if (loginUserText.getText().equals("guest") && passUserText.getText().equals("guest")) {
+                    setContentPane(paneClient);
+                    revalidate();
+                } else {
+                    JLabel dontHaveAccount = new JLabel("Sorry but i don't know your id");
+                }
             }
-        }
-        return found;
-    }
+        });
 
+        logoutAdmin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                setContentPane(paneEnter);
+                revalidate();
+            }
+        });
+
+        logout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                setContentPane(paneEnter);
+                revalidate();
+            }
+        });
+
+    }
 }
+
