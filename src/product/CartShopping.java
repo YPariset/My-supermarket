@@ -70,7 +70,7 @@ public class CartShopping {
     }
 
 
-    public static void addInputToCart() {
+    public static void addInputToCart(JTextField myId, JTextField myQuantity) {
 
         int chooseId = 0;
         int chooseQuantity = 0;
