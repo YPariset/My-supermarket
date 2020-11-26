@@ -55,7 +55,7 @@ public class AdminMenu implements Menu {
                         break;
 
                     case 2:
-                        MainMenu.product.addProduct();
+                        //MainMenu.product.addProduct();
                         show();
                         break;
 

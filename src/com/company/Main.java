@@ -1,8 +1,6 @@
 package com.company;
 
 
-import consolePrompt.MainMenu;
-
 import java.io.IOException;
 
 public class Main {
