@@ -1,5 +1,6 @@
 package product;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -44,15 +45,15 @@ public class StockProduct {
     /***********            Methods           ***********/
     /****************************************************/
 
-    public static ArrayList<Product> getProductStock() {
+    public void getProductStock(JTextArea resultArea) {
         String result = "";
         System.out.println("### Product List ###");
         for (Product myProduct : productStockList) {
             result += "Name: " + myProduct.getProduct()+ " | Quantity: " + myProduct.getQuantity() +
                     " | Price: " + myProduct.getPrice() + "€" + " | ID: " + myProduct.getId() + "\n";
             }
-        System.out.println(result);
-        return productStockList;
+        resultArea.setText(result);
+        //return productStockList;
         }
 
 

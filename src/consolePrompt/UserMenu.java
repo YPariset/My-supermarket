@@ -13,12 +13,11 @@ import user.User;
 public class UserMenu implements Menu {
 
 
-
     /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
 
-    public void printAddToCart() {
+    /*public void printAddToCart() {
         stockProduct.getProductStock();
         cartShopping.addInputToCart();
         cartShopping.displayCart();
@@ -26,7 +25,7 @@ public class UserMenu implements Menu {
         System.out.println("0) to return ");
         System.out.print(">");
 
-    }
+    }*/
 
     public void printCart() {
         cartShopping.displayCart();
@@ -70,7 +69,7 @@ public class UserMenu implements Menu {
                 switch (choiceClient) {
                     case 1:
                         // List Product
-                        MainMenu.product.getProductStock();
+                        MainMenu.product.getProductStock(null);
                         System.out.println("0) to return ");
                         System.out.print(">");
                         int choiceProductList = scan.nextInt();
@@ -83,7 +82,7 @@ public class UserMenu implements Menu {
 
                     case 2:
                         // Add to cart
-                       printAddToCart();
+                       //printAddToCart();
                        int cart = scan.nextInt();
 
                         switch (cart) {
@@ -94,8 +93,8 @@ public class UserMenu implements Menu {
                                     case 1:
 
                                         Order orderUser = new Order(MainMenu.user.getUsername(),
-                                                cartShopping,CartShopping.getCartTotalAmount(),1);
-                                        OrderList.myOrderList.add(orderUser);
+                                                cartShopping,cartShopping.getCartTotalAmount(),1);
+                                        AdminMenu.myOrderList.addOrderToList(orderUser);
                                         System.out.println("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
                                         break;
                                     case 0:

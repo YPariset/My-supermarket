@@ -15,8 +15,8 @@ public class AdminMenu implements Menu {
     /****************************************************/
 
     //Order orders = new Order();
-    CartShopping cartShopping = new CartShopping();
-    OrderList myOrderList = new OrderList();
+    public static CartShopping cartShopping = new CartShopping();
+    public static OrderList myOrderList = new OrderList();
 
     @Override
     public void show() {
@@ -41,7 +41,7 @@ public class AdminMenu implements Menu {
                 switch (administratorChoice) {
                     case 1:
                         // Product List
-                        MainMenu.product.getProductStock();
+                        //MainMenu.product.getProductStock();
                         System.out.println("0) to return ");
                         System.out.print(">");
                         int choiceProductList = scan.nextInt();

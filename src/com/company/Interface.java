@@ -31,7 +31,7 @@ public class Interface extends JFrame {
         /************ Instantiation of our object ***************/
         /********************************************************/
 
-        // show
+        StockProduct myStock = new StockProduct();
 
         /***********************************************************/
         /***************** Configuration of JPanel *****************/
@@ -59,7 +59,7 @@ public class Interface extends JFrame {
         paneLogIn.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneMain.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneClient.setLayout(new FlowLayout(FlowLayout.CENTER));
-        paneAdmin.setLayout(new FlowLayout(FlowLayout.CENTER));
+        paneAdmin.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 
         /***********************************************************/
@@ -96,11 +96,15 @@ public class Interface extends JFrame {
         // Pane LogInUser
         JLabel marketSignaturLogIn = new JLabel("<html><h1>--------- Pineapple Supermarket ---------");
         JLabel login = new JLabel("<html><h1>Login");
+
         JTextField loginUserText = new JTextField();
         loginUserText.setColumns(33);
+
         JLabel passWord = new JLabel("<html><h1>Password");
+
         JTextField passUserText = new JTextField();
         passUserText.setColumns(33);
+
         JButton enterApp = new JButton("<html><h2>ENTER");
         JButton retourMain = new JButton("<html><h2>RETOUR");
 
@@ -129,27 +133,30 @@ public class Interface extends JFrame {
 
         // PanelClient
         JLabel clientLabel = new JLabel("Client interface ");
-        /*JButton products = new JButton("PRODUCTS");
-        JButton addProductsCart = new JButton("ADD PRODUCTS TO CART");
-        JButton seeCart = new JButton("SEE CART");
-        JButton logout = new JButton("LOGOUT");
 
-        ButtonGroup buttonGroupClien = new ButtonGroup();
-        buttonGroupClien.add(products);
-        buttonGroupClien.add(addProductsCart);
-        buttonGroupClien.add(seeCart);
-        buttonGroupClien.add(logout);
+
 
         // PanelAdmin
-        JButton productAdmin = new JButton("PRODUCT LIST");
-        JButton addProductAdmin = new JButton("ADD A PRODUCT");
-        JButton seeClientOrder = new JButton("SEE CLIENT'S ORDER");
+        JLabel interfaceAdminLabel = new JLabel("ADMIN INTERFACE");
+        interfaceAdminLabel.setFont(new Font("Courier New ", Font.BOLD, 18));
 
-        ButtonGroup buttonGroupAdmin = new ButtonGroup();
-        buttonGroupAdmin.add(productAdmin);
-        buttonGroupAdmin.add(addProductAdmin);
-        buttonGroupAdmin.add(seeClientOrder);
-        buttonGroupAdmin.add(logout);*/
+        JButton listProductsButton = new JButton("List Products");
+        JButton addProductButton = new JButton("Add Product");
+        JButton listOrderButton = new JButton("See clients order");
+        JTextArea resultArea = new JTextArea(25,30);
+        JButton logoutAdmin = new JButton("Logout");
+
+        //Ne regarde pas ça Pierre-Henri, promis le reste c'est bien !
+
+        JLabel ghost = new JLabel("                                                    ");
+        JLabel ghost0 = new JLabel("<html><h1><br>");
+        JLabel ghost1 = new JLabel("                                            ");
+        JLabel ghost2 = new JLabel("                       ");
+        JLabel ghost3 = new JLabel("                             ");
+        JLabel ghost4 = new JLabel("                                ");
+        JLabel ghost5 = new JLabel("<html><h1><br><br>");
+        JLabel ghost6 = new JLabel("                        ");
+
 
         /***********************************************************/
         /**************** Add components in Panel ******************/
@@ -189,11 +196,26 @@ public class Interface extends JFrame {
 
         paneClient.add(clientLabel);
 
+        paneAdmin.add(ghost);
+        paneAdmin.add(ghost0);
+        paneAdmin.add(interfaceAdminLabel);
+        paneAdmin.add(ghost1);
+        paneAdmin.add(ghost2);
+        paneAdmin.add(listProductsButton);
+        paneAdmin.add(addProductButton);
+        paneAdmin.add(listOrderButton);
+        paneAdmin.add(ghost3);
+        paneAdmin.add(resultArea);
+        paneAdmin.add(ghost4);
+        paneAdmin.add(ghost5);
+        paneAdmin.add(ghost6);
+        paneAdmin.add(logoutAdmin);
+
+
 
         /***********************************************************/
         /****************** User actions management ****************/
         /***********************************************************/
-
 
         setContentPane(paneEnter);
         revalidate();
@@ -202,7 +224,7 @@ public class Interface extends JFrame {
         enterAppButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                setContentPane(paneLogIn);
+                setContentPane(paneAdmin);
                 revalidate();
             }
         });
@@ -250,78 +272,15 @@ public class Interface extends JFrame {
             }
         });
 
+        listProductsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                myStock.getProductStock(resultArea);
+
+            }
+        });
 
 
-
-
-
-
-
-
-        /*
-        enterButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        setContentPane(paneClient);
-                        revalidate();
-                    }
-
-                });
-         */
-
-
-
-
-
-       /*
-        // product List - choix 1 - Admin interface
-
-        // add application Title
-        JTextArea productLabel = new JTextArea(20, 28);
-        // add "retour" button
-
-        // add product - choice 2 - Admin interface
-        JLabel addProduct = new JLabel("Enter a new product name : ");
-        JTextField addProductText = new JTextField();
-
-        // See client's order - choice 3 - admin interface
-
-
-        // Log out - choice 4 - admin interface
-
-        paneMain.add(new JButton("Hello"));
-
-
-        // Client Interface
-        //
-        JButton productListClient = new JButton("Product List");
-        JButton addProductToCartClient = new JButton("Add product to cart");
-        JButton seeCartClient = new JButton("See cart");
-        // add log out button
-
-        // product List - choix 1 - Client interface
-        // add ProductLabel
-        JLabel addProductToCart = new JLabel("Add to your cart your chosen products by typing in the matching ID");
-        JTextField addProductToChartQuantity = new JTextField();
-        addProductToChartQuantity.setColumns(7);
-
-        JLabel addProductToCartAdded = new JLabel("Added to cart"); //+ productName + quantity
-        JLabel addProductToCartPrice = new JLabel("Total amount : "); // + total price
-
-        JButton toOrder = new JButton("ORDER");
-        JButton toReturn = new JButton("RETURN");
-
-        // If order
-        JLabel confirmPurchases = new JLabel("Do you confirm your purchases ?");
-        JButton pruchasesOk = new JButton("CONFIRM");
-        JButton pruchasesCancel = new JButton("CANCEL");
-
-        // If order confirm
-        JLabel purchasesSend = new JLabel("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
-
-
-
-*/
 
     }
 }

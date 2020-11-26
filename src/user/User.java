@@ -1,10 +1,7 @@
 package user;
 
-import com.company.Interface;
 import consolePrompt.Menu;
 import consolePrompt.UserMenu;
-import product.Product;
-import product.StockProduct;
 
 import java.util.ArrayList;
 import java.util.Scanner;
