@@ -3,7 +3,7 @@ package product;
 import java.util.ArrayList;
 
 public class OrderList {
-    private ArrayList<Order> myOrderList = null;
+    public ArrayList<Order> myOrderList = null;
 
     public OrderList() {
         myOrderList = new ArrayList<>();

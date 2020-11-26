@@ -11,7 +11,7 @@ public class Order {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    protected User userLambda;
+    protected String userLambda;
     protected CartShopping shoppingCart;
     protected float totalAmount;
     public int orderID;
@@ -21,7 +21,7 @@ public class Order {
     /***********           Constructor        ***********/
     /****************************************************/
 
-    public Order(User nameUser, CartShopping shoppingListUser, float totalAmount, int orderID) {
+    public Order(String nameUser, CartShopping shoppingListUser, float totalAmount, int orderID) {
         this.userLambda = nameUser;
         this.shoppingCart = shoppingListUser;
         this.totalAmount = totalAmount;
@@ -52,7 +52,7 @@ public class Order {
     /***********            Getters           ***********/
     /****************************************************/
 
-    public User getUserLambda() {
+    public String getUserLambda() {
         return userLambda;
     }
 

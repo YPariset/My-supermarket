@@ -1,9 +1,14 @@
 package consolePrompt;
 
+import product.CartShopping;
+import product.Order;
+import product.OrderList;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static product.CartShopping.*;
+import user.User;
 
 public class UserMenu implements Menu {
 
@@ -87,7 +92,10 @@ public class UserMenu implements Menu {
                                 int payed = scan.nextInt();
                                 switch (payed) {
                                     case 1:
-                                       //remove
+
+                                        Order orderUser = new Order(MainMenu.user.getUsername(),
+                                                cartShopping,CartShopping.getCartTotalAmount(),1);
+                                        OrderList.myOrderList.add(orderUser);
                                         System.out.println("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
                                         break;
                                     case 0:
