@@ -13,8 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static product.CartShopping.cartShopping;
-import static product.CartShopping.shoppingList;
+import static product.CartShopping.*;
 
 
 public class Interface extends JFrame {
@@ -142,12 +141,29 @@ public class Interface extends JFrame {
         JButton products = new JButton("PRODUCTS");
         JButton addProductsCart = new JButton("ADD PRODUCTS TO CART");
         JButton seeCart = new JButton("SEE CART");
+        JLabel ghostSpace = new JLabel("");
+        ghostSpace.setPreferredSize(new Dimension(500,70));
         JButton logout = new JButton("LOGOUT");
-        JTextArea cartAndStockText = new JTextArea();
-        cartAndStockText.setPreferredSize(new Dimension(500,300));
-
-        //Pane
-
+        JTextArea StockText = new JTextArea();
+        StockText.setPreferredSize(new Dimension(500,200));
+            //Add to Cart
+        JLabel IDofProduct = new JLabel("Type ID of product wanted",SwingConstants.RIGHT);
+        IDofProduct.setPreferredSize(new Dimension(170,50));
+        IDofProduct.setVisible(false);
+        JTextField addID = new JTextField();
+        addID.setPreferredSize(new Dimension(50,40));
+        addID.setVisible(false);
+        JLabel quantityDesired = new JLabel("Quantity",SwingConstants.RIGHT);
+        quantityDesired.setPreferredSize(new Dimension(100,50));
+        quantityDesired.setVisible(false);
+        JTextField addQuantity = new JTextField();
+        addQuantity.setPreferredSize(new Dimension(50,40));
+        addQuantity.setVisible(false);
+        JButton enter = new JButton("ENTER");
+        enter.setVisible(false);
+        JTextArea myCart = new JTextArea();
+        myCart.setPreferredSize(new Dimension(500,100));
+        myCart.setVisible(false);
 
 
 
@@ -214,8 +230,16 @@ public class Interface extends JFrame {
         paneClient.add(products);
         paneClient.add(addProductsCart);
         paneClient.add(seeCart);
-        paneClient.add(cartAndStockText);
+        paneClient.add(IDofProduct);
+        paneClient.add(addID);
+        paneClient.add(quantityDesired);
+        paneClient.add(addQuantity);
+        paneClient.add(enter);
+        paneClient.add(myCart);
+        paneClient.add(ghostSpace);
+        paneClient.add(StockText);
         paneClient.add(logout);
+
 
         paneAdmin.add(ghost);
         paneAdmin.add(ghost0);
@@ -303,7 +327,7 @@ public class Interface extends JFrame {
         products.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                myStock.getProductStock(cartAndStockText);
+                myStock.getProductStock(StockText);
             }
         });
 
@@ -311,7 +335,21 @@ public class Interface extends JFrame {
         addProductsCart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ghostSpace.setVisible(false);
+                IDofProduct.setVisible(true);
+                addID.setVisible(true);
+                quantityDesired.setVisible(true);
+                addQuantity.setVisible(true);
+                enter.setVisible(true);
+                myCart.setVisible(true);
+            }
+        });
+        enter.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cartShopping.addFieldToCart(addID,addQuantity);
+                cartShopping.displayCart(myCart);
+                myStock.getProductStock(StockText);
             }
         });
 
@@ -323,6 +361,7 @@ public class Interface extends JFrame {
                 int retour = confirmYourPurchase.showConfirmDialog(null,"Do you confirm your purchases ?",
                         "### Cart ###",JOptionPane.OK_CANCEL_OPTION);
                 if (retour == 0 ){
+                    cartShopping.displayCart(StockText);
                     Order orderUser = new Order(userNameText, cartShopping,cartShopping.getCartTotalAmount(),1);
                     AdminMenu.myOrderList.addOrderToList(orderUser);
                     JOptionPane yourPurchase = new JOptionPane();

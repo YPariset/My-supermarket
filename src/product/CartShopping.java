@@ -1,5 +1,6 @@
 package product;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -48,13 +49,16 @@ public class CartShopping {
     }
 
 
-    public static void displayCart() {
+    public static void displayCart(JTextArea myArea) {
         for(Product elements : shoppingList){
             if(shoppingList == null) {
-                System.out.println("Your cart is empty");
+               // System.out.println("Your cart is empty");
+                myArea.setText("\n Your cart is empty");
             }else {
-                System.out.println("product : " + elements.getProduct() + "|| price: " + elements.getPrice() + "|| quantity: " + elements.getQuantity()+ "\n"
-                        + " Montant total : " + getCartTotalAmount());
+               // System.out.println("product : " + elements.getProduct() + "|| price: " + elements.getPrice() + "|| quantity: " + elements.getQuantity()+ "\n"
+               //         + " Montant total : " + getCartTotalAmount());
+                myArea.setText("\n product : " + elements.getProduct() + "|| price: " + elements.getPrice() + "|| quantity: " + elements.getQuantity()+ "\n"
+                                 + " Montant total : " + getCartTotalAmount());
             }
         }
     }
@@ -93,6 +97,25 @@ public class CartShopping {
         }catch(InputMismatchException e){
             System.out.println("bad key ");
         }
+    }
+    public void addFieldToCart(JTextField myId, JTextField myQuantity) {
+        try {
+            boolean exist = stockProduct.isAvailable(stockProduct, Integer.parseInt(myId.getText()));
+            if (!exist) {
+                JOptionPane wrongId = new JOptionPane();
+                wrongId.showMessageDialog(null, "Your index does not exists!");
+            } else {
+                if (stockProduct.checkQuantity(Integer.parseInt(myQuantity.getText()), Integer.parseInt(myId.getText()))) {
+
+                    stockProduct.choseProductById(Integer.parseInt(myQuantity.getText()), Integer.parseInt(myId.getText()));
+                } else {
+                    JOptionPane wrongQuantity = new JOptionPane();
+                    wrongQuantity.showMessageDialog(null, "Quantity not valid !");
+                }
+            }
+            }catch(Exception e){
+                System.out.println("bad key ");
+            }
     }
 
     public void clearShoppingCart() {

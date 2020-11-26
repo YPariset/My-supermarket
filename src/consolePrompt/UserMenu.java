@@ -4,6 +4,7 @@ import product.CartShopping;
 import product.Order;
 import product.OrderList;
 
+import javax.swing.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -25,11 +26,11 @@ public class UserMenu implements Menu {
 
     }*/
 
-    public void printCart() {
+   /* public void printCart() {
         cartShopping.displayCart();
         System.out.println("0) to return ");
         System.out.print(">");
-    }
+    }*/
 
     public void printConfirmPurchases() {
         System.out.println(" ");
@@ -104,7 +105,7 @@ public class UserMenu implements Menu {
 
                         }
                     case 3:
-                        printCart();
+                        //printCart();
                         int toReturn = scan.nextInt();
                         switch (toReturn) {
                             case 0:
