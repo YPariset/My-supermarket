@@ -90,7 +90,6 @@ public class UserMenu implements Menu {
                                 int payed = scan.nextInt();
                                 switch (payed) {
                                     case 1:
-
                                         /*Order orderUser = new Order(MainMenu.user.getUsername(),
                                                 cartShopping,cartShopping.getCartTotalAmount(),1);
                                         AdminMenu.myOrderList.addOrderToList(orderUser);*/

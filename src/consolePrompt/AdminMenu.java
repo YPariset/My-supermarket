@@ -61,10 +61,7 @@ public class AdminMenu implements Menu {
 
                     case 3:
                         int idOrder = 1;
-                        myOrderList.getOrderList();
 
-
-                        cartShopping.clearShoppingCart();
 
                         //idOrder+= 1;
                         break;

@@ -47,7 +47,7 @@ public class MainMenu implements Menu {
 
                 switch (mainMenuChoice) {
                     case 1:
-                        user.LogIn();
+                        user.logIn();
                         break;
                     case 2:
                         user.addUser();
