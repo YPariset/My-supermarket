@@ -31,6 +31,7 @@ public class Interface extends JFrame {
         /************ Instantiation of our object ***************/
         /********************************************************/
 
+        // show
         StockProduct myStock = new StockProduct();
 
         /***********************************************************/
@@ -59,7 +60,7 @@ public class Interface extends JFrame {
         paneLogIn.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneMain.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneClient.setLayout(new FlowLayout(FlowLayout.CENTER));
-        paneAdmin.setLayout(new FlowLayout(FlowLayout.LEFT));
+        paneAdmin.setLayout(new FlowLayout(FlowLayout.CENTER));
 
 
         /***********************************************************/
@@ -96,15 +97,11 @@ public class Interface extends JFrame {
         // Pane LogInUser
         JLabel marketSignaturLogIn = new JLabel("<html><h1>--------- Pineapple Supermarket ---------");
         JLabel login = new JLabel("<html><h1>Login");
-
         JTextField loginUserText = new JTextField();
         loginUserText.setColumns(33);
-
         JLabel passWord = new JLabel("<html><h1>Password");
-
         JTextField passUserText = new JTextField();
         passUserText.setColumns(33);
-
         JButton enterApp = new JButton("<html><h2>ENTER");
         JButton retourMain = new JButton("<html><h2>RETOUR");
 
@@ -132,7 +129,17 @@ public class Interface extends JFrame {
 
 
         // PanelClient
-        JLabel clientLabel = new JLabel("Client interface ");
+        JLabel clientLabel = new JLabel("Client interface ",SwingConstants.CENTER);
+        clientLabel.setFont(new Font("Chalkdsuter",Font.CENTER_BASELINE,20));
+        clientLabel.setForeground(Color.getHSBColor(7,6,7));
+        clientLabel.setPreferredSize(new Dimension(500,80));
+        JButton products = new JButton("PRODUCTS");
+        JButton addProductsCart = new JButton("ADD PRODUCTS TO CART");
+        JButton seeCart = new JButton("SEE CART");
+        JButton logout = new JButton("LOGOUT");
+        JTextField cartAndStockText = new JTextField();
+        cartAndStockText.setPreferredSize(new Dimension(500,300));
+
 
 
 
@@ -161,6 +168,7 @@ public class Interface extends JFrame {
         /***********************************************************/
         /**************** Add components in Panel ******************/
         /***********************************************************/
+
 
         paneEnter.add(enterSignature);
         paneEnter.add(enterAppButton);
@@ -195,6 +203,11 @@ public class Interface extends JFrame {
         paneMain.add(retourMainMenu);
 
         paneClient.add(clientLabel);
+        paneClient.add(products);
+        paneClient.add(addProductsCart);
+        paneClient.add(seeCart);
+        paneClient.add(cartAndStockText);
+        paneClient.add(logout);
 
         paneAdmin.add(ghost);
         paneAdmin.add(ghost0);
@@ -212,19 +225,18 @@ public class Interface extends JFrame {
         paneAdmin.add(logoutAdmin);
 
 
-
         /***********************************************************/
         /****************** User actions management ****************/
         /***********************************************************/
 
-        setContentPane(paneEnter);
+        setContentPane(paneClient);
         revalidate();
 
         // Enter button
         enterAppButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                setContentPane(paneAdmin);
+                setContentPane(paneLogIn);
                 revalidate();
             }
         });
@@ -281,6 +293,77 @@ public class Interface extends JFrame {
         });
 
 
+
+
+
+
+
+
+
+        /*
+        enterButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        setContentPane(paneClient);
+                        revalidate();
+                    }
+
+                });
+         */
+
+
+
+
+
+       /*
+        // product List - choix 1 - Admin interface
+
+        // add application Title
+        JTextArea productLabel = new JTextArea(20, 28);
+        // add "retour" button
+
+        // add product - choice 2 - Admin interface
+        JLabel addProduct = new JLabel("Enter a new product name : ");
+        JTextField addProductText = new JTextField();
+
+        // See client's order - choice 3 - admin interface
+
+
+        // Log out - choice 4 - admin interface
+
+        paneMain.add(new JButton("Hello"));
+
+
+        // Client Interface
+        //
+        JButton productListClient = new JButton("Product List");
+        JButton addProductToCartClient = new JButton("Add product to cart");
+        JButton seeCartClient = new JButton("See cart");
+        // add log out button
+
+        // product List - choix 1 - Client interface
+        // add ProductLabel
+        JLabel addProductToCart = new JLabel("Add to your cart your chosen products by typing in the matching ID");
+        JTextField addProductToChartQuantity = new JTextField();
+        addProductToChartQuantity.setColumns(7);
+
+        JLabel addProductToCartAdded = new JLabel("Added to cart"); //+ productName + quantity
+        JLabel addProductToCartPrice = new JLabel("Total amount : "); // + total price
+
+        JButton toOrder = new JButton("ORDER");
+        JButton toReturn = new JButton("RETURN");
+
+        // If order
+        JLabel confirmPurchases = new JLabel("Do you confirm your purchases ?");
+        JButton pruchasesOk = new JButton("CONFIRM");
+        JButton pruchasesCancel = new JButton("CANCEL");
+
+        // If order confirm
+        JLabel purchasesSend = new JLabel("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
+
+
+
+*/
 
     }
 }

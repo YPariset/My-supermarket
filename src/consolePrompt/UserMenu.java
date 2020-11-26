@@ -8,8 +8,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static product.CartShopping.*;
-import user.User;
-
 public class UserMenu implements Menu {
 
 
