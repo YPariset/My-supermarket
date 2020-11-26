@@ -79,7 +79,7 @@ public class UserMenu implements Menu {
                         }
 
                     case 2:
-                        // Add to cart
+                        //Add to cart
                        //printAddToCart();
                        int cart = scan.nextInt();
 
@@ -90,9 +90,9 @@ public class UserMenu implements Menu {
                                 switch (payed) {
                                     case 1:
 
-                                        Order orderUser = new Order(MainMenu.user.getUsername(),
+                                        /*Order orderUser = new Order(MainMenu.user.getUsername(),
                                                 cartShopping,cartShopping.getCartTotalAmount(),1);
-                                        AdminMenu.myOrderList.addOrderToList(orderUser);
+                                        AdminMenu.myOrderList.addOrderToList(orderUser);*/
                                         System.out.println("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
                                         break;
                                     case 0:

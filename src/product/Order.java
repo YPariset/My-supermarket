@@ -2,6 +2,7 @@ package product;
 
 import user.User;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 
@@ -11,7 +12,7 @@ public class Order {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    protected String userLambda;
+    protected JTextField userLambda;
     protected CartShopping shoppingCart;
     protected String totalAmount;
     public int orderID;
@@ -21,7 +22,7 @@ public class Order {
     /***********           Constructor        ***********/
     /****************************************************/
 
-    public Order(String nameUser, CartShopping shoppingListUser, String totalAmount, int orderID) {
+    public Order(JTextField nameUser, CartShopping shoppingListUser, String totalAmount, int orderID) {
         this.userLambda = nameUser;
         this.shoppingCart = shoppingListUser;
         this.totalAmount = totalAmount;
@@ -52,7 +53,7 @@ public class Order {
     /***********            Getters           ***********/
     /****************************************************/
 
-    public String getUserLambda() {
+    public JTextField getUserLambda() {
         return userLambda;
     }
 

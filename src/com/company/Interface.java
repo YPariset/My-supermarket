@@ -1,5 +1,8 @@
 package com.company;
 
+import consolePrompt.AdminMenu;
+import consolePrompt.MainMenu;
+import product.Order;
 import product.StockProduct;
 import user.User;
 
@@ -9,6 +12,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static product.CartShopping.cartShopping;
+import static product.CartShopping.shoppingList;
 
 
 public class Interface extends JFrame {
@@ -60,7 +66,7 @@ public class Interface extends JFrame {
         paneLogIn.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneMain.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneClient.setLayout(new FlowLayout(FlowLayout.CENTER));
-        paneAdmin.setLayout(new FlowLayout(FlowLayout.CENTER));
+        paneAdmin.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 
         /***********************************************************/
@@ -137,8 +143,10 @@ public class Interface extends JFrame {
         JButton addProductsCart = new JButton("ADD PRODUCTS TO CART");
         JButton seeCart = new JButton("SEE CART");
         JButton logout = new JButton("LOGOUT");
-        JTextField cartAndStockText = new JTextField();
+        JTextArea cartAndStockText = new JTextArea();
         cartAndStockText.setPreferredSize(new Dimension(500,300));
+
+        //Pane
 
 
 
@@ -289,6 +297,40 @@ public class Interface extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 myStock.getProductStock(resultArea);
 
+            }
+        });
+        // CLIENTPANE => see product in stock button
+        products.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                myStock.getProductStock(cartAndStockText);
+            }
+        });
+
+        // CLIENTPANE => add product from stock to cart.
+        addProductsCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        // CLIENTPANE => see Cart + confirm order.
+        seeCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane confirmYourPurchase = new JOptionPane();
+                int retour = confirmYourPurchase.showConfirmDialog(null,"Do you confirm your purchases ?",
+                        "### Cart ###",JOptionPane.OK_CANCEL_OPTION);
+                if (retour == 0 ){
+                    Order orderUser = new Order(userNameText, cartShopping,cartShopping.getCartTotalAmount(),1);
+                    AdminMenu.myOrderList.addOrderToList(orderUser);
+                    JOptionPane yourPurchase = new JOptionPane();
+                    yourPurchase.showMessageDialog(null,
+                            "Thanks to ordered in Pineapple Market ! You will receive your articles soon.",
+                            "You order",JOptionPane.PLAIN_MESSAGE);
+                    cartShopping.clearShoppingCart();
+                }
             }
         });
 
