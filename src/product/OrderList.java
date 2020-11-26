@@ -1,5 +1,6 @@
 package product;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class OrderList {
@@ -9,15 +10,14 @@ public class OrderList {
         myOrderList = new ArrayList<>();
     }
 
-    public ArrayList<Order> getOrderList() {
+    public void getOrderList(JTextArea resultArea) {
         String result = "";
         System.out.println("### Order List ###");
         for (Order myOrder : myOrderList) {
             result += "Name" + myOrder.getUserLambda() + " | Shopping List : " + myOrder.getShoppingCart() +
                     " | Total Amount: " + myOrder.getTotalAmount() + " | ID Order" + myOrder.getOrderID()+ "\n";
         }
-        System.out.println(result);
-        return myOrderList;
+        resultArea.setText(result);
     }
 
     public void addOrderToList( Order myOrder){

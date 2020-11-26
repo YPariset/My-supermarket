@@ -91,10 +91,11 @@ public class UserMenu implements Menu {
                                 int payed = scan.nextInt();
                                 switch (payed) {
                                     case 1:
-                                        /*Order orderUser = new Order(MainMenu.user.getUsername(),
-                                                cartShopping,cartShopping.getCartTotalAmount(),1);
-                                        AdminMenu.myOrderList.addOrderToList(orderUser);*/
+                                        Order orderUser = new Order(MainMenu.user.getUsername(), cartShopping,cartShopping.getCartTotalAmount(),1);
+                                        AdminMenu.myOrderList.addOrderToList(orderUser);
                                         System.out.println("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
+                                        System.out.println(AdminMenu.myOrderList);
+                                        shoppingList.removeAll(shoppingList);
                                         break;
                                     case 0:
                                         show();

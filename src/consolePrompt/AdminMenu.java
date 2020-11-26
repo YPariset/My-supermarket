@@ -60,10 +60,7 @@ public class AdminMenu implements Menu {
                         break;
 
                     case 3:
-                        int idOrder = 1;
-
-
-                        //idOrder+= 1;
+                        //myOrderList.getOrderList();
                         break;
                     case 4:
                         MainMenu mainMenu = new MainMenu();

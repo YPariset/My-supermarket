@@ -13,7 +13,7 @@ public class User {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    public static ArrayList<User> userList;
+    public static ArrayList<User> userList = new ArrayList<>();
 
     public static ArrayList<String> guestOrder;
     public static ArrayList<Admin> adminList = new ArrayList<>();
@@ -30,8 +30,6 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-
-
     }
 
     /****************************************************/
@@ -86,7 +84,7 @@ public class User {
         System.out.println("Please enter your password");
         String newPassword = output.nextLine();
         User theUser = new User(newUsername, newPassword);
-        userList.add(theUser);
+        this.userList.add(theUser);
         System.out.println("Congrats ! You just created a new account");
     }
 
