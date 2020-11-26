@@ -33,42 +33,11 @@ public class User {
         userList = new ArrayList<>();
     }
 
-    public User()  {
-
-    }
-
     /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
     // methode Log in user
-    public static void logInUser(String username, String password) {
-
-        User user1 = new User("guest", "guest");
-
-        userList.add(user1);
-
-        System.out.println("Please enter your username and your password \n ");
-        System.out.println(" Username: ");
-        System.out.print(">");
-        //username = output.nextLine();
-        System.out.println(" Password: ");
-        System.out.print(">");
-        //password = output.nextLine();
-
-
-        for (int i = 0; i < userList.size(); i++) {
-            User user = userList.get(i);
-            if (user.authenticate(username, password)) {
-                user.getMenu().show();
-                break;
-            }else {
-                System.out.println("Sorry you don't have permission");
-            }
-            break;
-        }
-    }
-
-    public void logIn() {
+    public void LogIn() {
 
         User user1 = new User("guest", "guest");
         Admin admin1 = new Admin("admin", "admin");
@@ -84,9 +53,10 @@ public class User {
         System.out.print(">");
         String password = output.nextLine();
 
+
         for (int i = 0; i < userList.size(); i++) {
             User user = userList.get(i);
-            if (user.authenticate(username, password)) {
+            if (user.authenticate(username , password)) {
                 user.getMenu().show();
                 break;
             }
@@ -108,7 +78,6 @@ public class User {
         return this.username.equals(username) && this.password.equals(password);
     }
 
-
     public void addUser() {
         System.out.println("Please enter your username");
         String newUsername = output.nextLine();
@@ -123,7 +92,7 @@ public class User {
     /***********            Getters           ***********/
     /****************************************************/
 
-    public Menu getMenu() {
+    public static Menu getMenu() {
         return new UserMenu();
     }
 

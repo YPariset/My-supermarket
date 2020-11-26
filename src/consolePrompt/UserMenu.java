@@ -12,19 +12,20 @@ import static product.CartShopping.*;
 public class UserMenu implements Menu {
 
 
+
     /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
 
-    /*public void printAddToCart() {
-        stockProduct.getProductStock();
-        cartShopping.addInputToCart();
-        cartShopping.displayCart();
+    public void printAddToCart() {
+        stockProduct.getProductStock(null);
+       // cartShopping.addInputToCart();
+        // cartShopping.displayCart();
         System.out.println("1) to order ");
         System.out.println("0) to return ");
         System.out.print(">");
 
-    }*/
+    }
 
    /* public void printCart() {
         cartShopping.displayCart();
@@ -81,7 +82,7 @@ public class UserMenu implements Menu {
 
                     case 2:
                         //Add to cart
-                       //printAddToCart();
+                       printAddToCart();
                        int cart = scan.nextInt();
 
                         switch (cart) {
