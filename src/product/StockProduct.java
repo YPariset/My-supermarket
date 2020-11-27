@@ -2,8 +2,6 @@ package product;
 
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class StockProduct {
 
@@ -12,12 +10,7 @@ public class StockProduct {
     /****************************************************/
 
     public static ArrayList<Product> productStockList;
-    public Scanner input = new Scanner(System.in);
 
-    public static String myProductName;
-    public static int myProductQuantity;
-    public static float myProductPrice;
-    public static int myProductID;
 
     /****************************************************/
     /***********           Constructor        ***********/
@@ -53,21 +46,11 @@ public class StockProduct {
                     " | Price: " + myProduct.getPrice() + "€" + " | ID: " + myProduct.getId() + "\n";
             }
         resultArea.setText(result);
-        //return productStockList;
+        //return productStockList;          //useless to swing
         }
 
 
     public void addProduct(String name, int quantity, int price, int id ){
-
-        /*System.out.println("Enter new product name: ");
-        myProductName = input.nextLine();
-        System.out.println("Enter a quantity: ");
-        myProductQuantity = input.nextInt();
-        System.out.println("Enter a price: ");
-        myProductPrice = input.nextFloat();
-        System.out.println("Enter an ID: ");
-        myProductID = input.nextInt();*/
-
         Product myProduct = new Product(name,quantity,price,id);
         productStockList.add(myProduct);
     }

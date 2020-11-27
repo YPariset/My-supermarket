@@ -1,10 +1,7 @@
 package consolePrompt;
 
-import product.CartShopping;
 import product.Order;
-import product.OrderList;
 
-import javax.swing.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,19 +16,14 @@ public class UserMenu implements Menu {
 
     public void printAddToCart() {
         stockProduct.getProductStock(null);
-       // cartShopping.addInputToCart();
-        // cartShopping.displayCart();
+       // cartShopping.addInputToCart();                //useless to swing
+        // cartShopping.displayCart();                  //useless to swing
         System.out.println("1) to order ");
         System.out.println("0) to return ");
         System.out.print(">");
 
     }
 
-   /* public void printCart() {
-        cartShopping.displayCart();
-        System.out.println("0) to return ");
-        System.out.print(">");
-    }*/
 
     public void printConfirmPurchases() {
         System.out.println(" ");
@@ -91,7 +83,7 @@ public class UserMenu implements Menu {
                                 int payed = scan.nextInt();
                                 switch (payed) {
                                     case 1:
-                                        Order orderUser = new Order(MainMenu.user.getUsername(), cartShopping,cartShopping.getCartTotalAmount(),1);
+                                        Order orderUser = new Order(cartShopping,cartShopping.getCartTotalAmount(),1);
                                         AdminMenu.myOrderList.addOrderToList(orderUser);
                                         System.out.println("Thanks to ordered in Pineapple Market ! You will receive your articles soon.");
                                         System.out.println(AdminMenu.myOrderList);

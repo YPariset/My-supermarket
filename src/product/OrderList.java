@@ -14,7 +14,7 @@ public class OrderList {
         String result = "";
         System.out.println("### Order List ###");
         for (Order myOrder : myOrderList) {
-            result += "Name" + myOrder.getUserLambda() + " | Shopping List : " + myOrder.getShoppingCart() +
+            result += "| Shopping List : " + myOrder.getShoppingCart() +
                     " | Total Amount: " + myOrder.getTotalAmount() + " | ID Order" + myOrder.getOrderID()+ "\n";
         }
         resultArea.setText(result);

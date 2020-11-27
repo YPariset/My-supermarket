@@ -1,9 +1,5 @@
 package user;
 
-import consolePrompt.AdminMenu;
-import consolePrompt.Menu;
-
-
 public class Admin extends User {
 
     /****************************************************/
@@ -24,10 +20,6 @@ public class Admin extends User {
     /***********            Methods           ***********/
     /****************************************************/
 
-
-    public static Menu getMenu() {
-        return new AdminMenu();
-    }
 
     /****************************************************/
     /***********            Getters           ***********/

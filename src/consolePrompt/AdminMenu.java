@@ -1,9 +1,7 @@
 package consolePrompt;
 
-import product.CartShopping;
-import product.Order;
 import product.OrderList;
-import user.User;
+
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -14,8 +12,6 @@ public class AdminMenu implements Menu {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    //Order orders = new Order();
-    public static CartShopping cartShopping = new CartShopping();
     public static OrderList myOrderList = new OrderList();
 
     @Override
@@ -40,8 +36,6 @@ public class AdminMenu implements Menu {
 
                 switch (administratorChoice) {
                     case 1:
-                        // Product List
-                        //MainMenu.product.getProductStock();
                         System.out.println("0) to return ");
                         System.out.print(">");
                         int choiceProductList = scan.nextInt();
@@ -55,12 +49,12 @@ public class AdminMenu implements Menu {
                         break;
 
                     case 2:
-                        //MainMenu.product.addProduct();
+                        //MainMenu.product.addProduct();       //Useless to Swing
                         show();
                         break;
 
                     case 3:
-                        //myOrderList.getOrderList();
+                        //myOrderList.getOrderList();      //Useless to Swing
                         break;
                     case 4:
                         MainMenu mainMenu = new MainMenu();

@@ -50,7 +50,7 @@ public class MainMenu implements Menu {
                         user.LogIn();
                         break;
                     case 2:
-                        //user.addUser();
+                        //user.addUser();     //Useless to Swing
                         break;
                     case 3:
                         System.exit(1);

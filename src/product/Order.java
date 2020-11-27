@@ -1,11 +1,5 @@
 package product;
 
-import user.User;
-
-import javax.swing.*;
-import java.util.ArrayList;
-
-
 public class Order {
 
     /****************************************************/
@@ -16,38 +10,22 @@ public class Order {
     protected CartShopping shoppingCart;
     protected String totalAmount;
     public int orderID;
-    public static ArrayList<Order> orderList;
+
 
     /****************************************************/
     /***********           Constructor        ***********/
     /****************************************************/
 
-    public Order(String nameUser, CartShopping shoppingListUser, String totalAmount, int orderID) {
-        this.userLambda = nameUser;
+    public Order(CartShopping shoppingListUser, String totalAmount, int orderID) {
         this.shoppingCart = shoppingListUser;
         this.totalAmount = totalAmount;
         this.orderID = orderID;
-    }
-
-    public Order() {
-
     }
 
 
     /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/
-
-    public void getOrderList(JTextArea resultArea){
-        String result = "";
-        System.out.println("### Order List ###");
-        for(Order myOrder : orderList){
-            result += "Name" + myOrder.getUserLambda() + " | Shopping List : "+ myOrder.getShoppingCart() +
-                    " | Total Amount: "+ myOrder.getTotalAmount() + " | ID Order" + myOrder.getOrderID();
-        }
-        resultArea.setText(result);
-        //return orderList;
-    }
 
 
 
@@ -76,8 +54,6 @@ public class Order {
     /***********            Setters           ***********/
     /****************************************************/
 
-   /* public void setOrder(HashMap<Integer, Product> order) {
-        this.order = order;
-    }*/
+
 
 }

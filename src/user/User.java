@@ -2,8 +2,6 @@ package user;
 
 import consolePrompt.Menu;
 import consolePrompt.UserMenu;
-
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,10 +12,7 @@ public class User {
     /****************************************************/
 
     public static ArrayList<User> userList = new ArrayList<>();
-
-
-    public static ArrayList<String> guestOrder;
-    public static ArrayList<Admin> adminList = new ArrayList<>();
+    public static ArrayList<User> adminList = new ArrayList<>();
 
     private String username;
     private String password;
@@ -79,15 +74,6 @@ public class User {
         return this.username.equals(username) && this.password.equals(password);
     }
 
-    public void addUser(String newUsername, String newPassword) {
-        System.out.println("Please enter your username");
-        //String newUsername = output.nextLine();
-        System.out.println("Please enter your password");
-        //String newPassword = output.nextLine();
-        User theUser = new User(newUsername, newPassword);
-        this.userList.add(theUser);
-        System.out.println("Congrats ! You just created a new account");
-    }
 
     /****************************************************/
     /***********            Getters           ***********/

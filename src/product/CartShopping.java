@@ -1,7 +1,6 @@
 package product;
 
 import javax.swing.*;
-import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -52,9 +51,10 @@ public class CartShopping {
     public static void displayCart(JTextArea myArea) {
         for(Product elements : shoppingList){
             if(shoppingList == null) {
-               // System.out.println("Your cart is empty");
+               // System.out.println("Your cart is empty");         //useless to swing
                 myArea.setText("\n Your cart is empty");
             }else {
+                //useless to swing
                // System.out.println("product : " + elements.getProduct() + "|| price: " + elements.getPrice() + "|| quantity: " + elements.getQuantity()+ "\n"
                //         + " Montant total : " + getCartTotalAmount());
                 myArea.setText("\n product : " + elements.getProduct() + "|| price: " + elements.getPrice() + "|| quantity: " + elements.getQuantity()+ "\n"
@@ -70,34 +70,6 @@ public class CartShopping {
     }
 
 
-    public static void addInputToCart(int myId, int myQuantity) {
-
-        //int chooseId = 0;
-        //int chooseQuantity = 0;
-
-
-        try {
-            System.out.println("Add to your cart your chosen products by typing in the matching ID ");
-            Scanner scanInputId = new Scanner(System.in);
-            //chooseId = scanInputId.nextInt();
-            boolean existNot = stockProduct.isAvailable(stockProduct,myId);
-            if (existNot){
-                System.out.println("Choose a quantity : ");
-                //chooseQuantity = scanInputId.nextInt();
-                if (!stockProduct.checkQuantity(myQuantity, myId)) {
-                    System.out.println("Quantity not valid");
-                } else {
-                    stockProduct.choseProductById(myId,myQuantity);
-                }
-
-
-            }else
-                System.out.println("Wrong ID");
-
-        }catch(InputMismatchException e){
-            System.out.println("bad key ");
-        }
-    }
     public void addFieldToCart(JTextField myId, JTextField myQuantity) {
         try {
             boolean exist = stockProduct.isAvailable(stockProduct, Integer.parseInt(myId.getText()));
