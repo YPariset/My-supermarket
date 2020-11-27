@@ -15,6 +15,7 @@ public class User {
 
     public static ArrayList<User> userList = new ArrayList<>();
 
+
     public static ArrayList<String> guestOrder;
     public static ArrayList<Admin> adminList = new ArrayList<>();
 
@@ -31,7 +32,7 @@ public class User {
         this.username = username;
         this.password = password;
     }
-
+    
     /****************************************************/
     /***********            Methods           ***********/
     /****************************************************/

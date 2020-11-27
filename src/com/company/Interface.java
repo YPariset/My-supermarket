@@ -346,7 +346,7 @@ public class Interface extends JFrame {
                 if (loginSignInText.getText().isEmpty() || passwordSignInText.getText().isEmpty()) {
                     //labelConfirm.setVisible(false);
                     //labelFailure.setVisible(true);
-                    JOptionPane.showMessageDialog(null, "Uh-oh!", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Uh-oh!", "Error", JOptionPane.PLAIN_MESSAGE, null);
                 } else {
                     //labelConfirm.setVisible(true);
                     //labelFailure.setVisible(false);
@@ -379,7 +379,8 @@ public class Interface extends JFrame {
                     revalidate();
                 } else {
                     JOptionPane wrongLogIn = new JOptionPane();
-                    wrongLogIn.showMessageDialog(null, "Your login or your password do not exist");
+                    JOptionPane.showMessageDialog(null, "Your login or your password do not exist", "Try Again", JOptionPane.PLAIN_MESSAGE, null);
+
                 }
 
             }
