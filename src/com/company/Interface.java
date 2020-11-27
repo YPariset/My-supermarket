@@ -140,11 +140,10 @@ public class Interface extends JFrame {
         // PanelClient
         JLabel clientLabel = new JLabel("Client interface ", SwingConstants.CENTER);
         clientLabel.setFont(new Font("Chalkdsuter", Font.CENTER_BASELINE, 20));
-        clientLabel.setForeground(Color.getHSBColor(7, 6, 7));
         clientLabel.setPreferredSize(new Dimension(500, 80));
         JButton products = new JButton("PRODUCTS");
         JButton addProductsCart = new JButton("ADD PRODUCTS TO CART");
-        JButton seeCart = new JButton("SEE CART");
+        JButton seeCart = new JButton("PAY CART");
         JLabel ghostSpace = new JLabel("");
         ghostSpace.setPreferredSize(new Dimension(500, 70));
         JButton logout = new JButton("LOGOUT");
@@ -241,8 +240,6 @@ public class Interface extends JFrame {
         /***********************************************************/
 
         // Enter App menu
-        setContentPane(new JLabel(new ImageIcon("/Users/paulmarechal/IdeaProjects/My-supermarket/src/Picture/MainMenu.png")));
-        setLayout(new FlowLayout());
         add(enterSignature);
         add(enterAppButton);
 
@@ -469,6 +466,7 @@ public class Interface extends JFrame {
                             "Thanks to ordered in Pineapple Market ! You will receive your articles soon.",
                             "You order", JOptionPane.PLAIN_MESSAGE, null);
                     cartShopping.clearShoppingCart();
+                    setContentPane(paneLogIn);
                 }
             }
         });
@@ -577,8 +575,8 @@ public class Interface extends JFrame {
             public void actionPerformed( ActionEvent e ) {
                 String loginNew = loginSignInText.getText();
                 String passNew = passwordSignIn.getText();
-                User theUser = new User(loginNew, passNew);
-                User.userList.add(theUser);
+                User newUser = new User(loginNew, passNew);
+                User.userList.add(newUser);
                 JOptionPane.showMessageDialog(null, "You just create a new account", "Congrats !", JOptionPane.PLAIN_MESSAGE, null);
 
             }
