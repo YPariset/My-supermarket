@@ -70,24 +70,24 @@ public class CartShopping {
     }
 
 
-    public static void addInputToCart(JTextField myId, JTextField myQuantity) {
+    public static void addInputToCart(int myId, int myQuantity) {
 
-        int chooseId = 0;
-        int chooseQuantity = 0;
+        //int chooseId = 0;
+        //int chooseQuantity = 0;
 
 
         try {
             System.out.println("Add to your cart your chosen products by typing in the matching ID ");
             Scanner scanInputId = new Scanner(System.in);
-            chooseId = scanInputId.nextInt();
-            boolean existNot = stockProduct.isAvailable(stockProduct,chooseId);
+            //chooseId = scanInputId.nextInt();
+            boolean existNot = stockProduct.isAvailable(stockProduct,myId);
             if (existNot){
                 System.out.println("Choose a quantity : ");
-                chooseQuantity = scanInputId.nextInt();
-                if (!stockProduct.checkQuantity(chooseQuantity, chooseId)) {
+                //chooseQuantity = scanInputId.nextInt();
+                if (!stockProduct.checkQuantity(myQuantity, myId)) {
                     System.out.println("Quantity not valid");
                 } else {
-                    stockProduct.choseProductById(chooseId,chooseQuantity);
+                    stockProduct.choseProductById(myId,myQuantity);
                 }
 
 

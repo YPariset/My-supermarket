@@ -78,11 +78,11 @@ public class User {
         return this.username.equals(username) && this.password.equals(password);
     }
 
-    public void addUser() {
+    public void addUser(String newUsername, String newPassword) {
         System.out.println("Please enter your username");
-        String newUsername = output.nextLine();
+        //String newUsername = output.nextLine();
         System.out.println("Please enter your password");
-        String newPassword = output.nextLine();
+        //String newPassword = output.nextLine();
         User theUser = new User(newUsername, newPassword);
         this.userList.add(theUser);
         System.out.println("Congrats ! You just created a new account");

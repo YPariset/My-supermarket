@@ -14,7 +14,7 @@ public class MainMenu implements Menu {
     /*************** Attributes/Instances ***************/
     /****************************************************/
 
-    protected static StockProduct product = new StockProduct();
+    public static StockProduct product = new StockProduct();
     protected static User user = new User("", "");
 
 
@@ -50,7 +50,7 @@ public class MainMenu implements Menu {
                         user.LogIn();
                         break;
                     case 2:
-                        user.addUser();
+                        //user.addUser();
                         break;
                     case 3:
                         System.exit(1);
