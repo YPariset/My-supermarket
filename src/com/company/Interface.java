@@ -77,6 +77,7 @@ public class Interface extends JFrame {
 
         // PanelEnter
         JLabel enterSignature = new JLabel("<html><h1>------- Welcome to your -----<br>---- Pineapple Supermarket ----");
+        JLabel space2 = new JLabel("<html><br><br><br><br><br><br><br><br><br><br></html>");
         JButton enterAppButton = new JButton("<html><h1> - ENTER - ");
         paneEnter.setPreferredSize(new Dimension(450, 200));
         paneEnter.setFont(new Font("SCRIPT", Font.BOLD, 18));
@@ -239,15 +240,19 @@ public class Interface extends JFrame {
         /**************** Add components in Panel ******************/
         /***********************************************************/
 
+        // Enter App menu
+        setContentPane(new JLabel(new ImageIcon("/Users/paulmarechal/IdeaProjects/My-supermarket/src/Picture/MainMenu.png")));
+        setLayout(new FlowLayout());
+        add(enterSignature);
+        add(enterAppButton);
 
-        paneEnter.add(enterSignature);
-        paneEnter.add(enterAppButton);
-
+        // Pane Log In
         paneLogIn.add(marketSignature);
         paneLogIn.add(createAccount);
         paneLogIn.add(logIn);
-        paneLogIn.add(exitButton);
+        //paneLogIn.add(exitButton);
 
+        // Pane Sign In new user
         paneSignIn.add(marketSignatur);
         paneSignIn.add(loginSignIn);
         paneSignIn.add(loginSignInText);
@@ -256,6 +261,7 @@ public class Interface extends JFrame {
         paneSignIn.add(validateSignIn);
         paneSignIn.add(returnMain);
 
+        // Pane Log In User
         paneLogInUser.add(marketSignaturLogIn);
         paneLogInUser.add(login);
         paneLogInUser.add(loginUserText);
@@ -264,6 +270,7 @@ public class Interface extends JFrame {
         paneLogInUser.add(enterApp);
         paneLogInUser.add(retourMain);
 
+        //
         paneMain.add(mainMenu);
         paneMain.add(enterUsername);
         paneMain.add(userNameText);
@@ -272,6 +279,7 @@ public class Interface extends JFrame {
         paneMain.add(enterButton);
         paneMain.add(retourMainMenu);
 
+        // Pane Client
         paneClient.add(clientLabel);
         paneClient.add(products);
         paneClient.add(addProductsCart);
@@ -287,6 +295,7 @@ public class Interface extends JFrame {
         paneClient.add(logout);
 
 
+        // Pane Admin
         paneAdmin.add(ghost);
         paneAdmin.add(ghost0);
         paneAdmin.add(interfaceAdminLabel);
@@ -318,8 +327,13 @@ public class Interface extends JFrame {
         /****************** User actions management ****************/
         /***********************************************************/
 
-        setContentPane(paneEnter);
-        revalidate();
+        setContentPane(new JLabel(new ImageIcon("/Users/paulmarechal/IdeaProjects/My-supermarket/src/Picture/MainMenu.png")));
+        setLayout(new FlowLayout());
+        add(enterSignature);
+        add(space2);
+        add(enterAppButton);
+        //setContentPane(paneEnter);
+        //revalidate();
 
         // Enter button
         enterAppButton.addActionListener(new ActionListener() {
@@ -344,12 +358,8 @@ public class Interface extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (loginSignInText.getText().isEmpty() || passwordSignInText.getText().isEmpty()) {
-                    //labelConfirm.setVisible(false);
-                    //labelFailure.setVisible(true);
                     JOptionPane.showMessageDialog(null, "Uh-oh!", "Error", JOptionPane.PLAIN_MESSAGE, null);
                 } else {
-                    //labelConfirm.setVisible(true);
-                    //labelFailure.setVisible(false);
                     user.addUser(loginSignInText.getName(), passwordSignInText.getText());
                     revalidate();
                 }
@@ -378,7 +388,7 @@ public class Interface extends JFrame {
                     setContentPane(paneAdmin);
                     revalidate();
                 } else {
-                    JOptionPane wrongLogIn = new JOptionPane();
+                    //JOptionPane wrongLogIn = new JOptionPane();
                     JOptionPane.showMessageDialog(null, "Your login or your password do not exist", "Try Again", JOptionPane.PLAIN_MESSAGE, null);
 
                 }
@@ -391,7 +401,7 @@ public class Interface extends JFrame {
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setContentPane(paneEnter);
+                setContentPane(paneLogIn);
                 revalidate();
             }
         });
@@ -407,7 +417,7 @@ public class Interface extends JFrame {
         retourMain.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setContentPane(paneEnter);
+                setContentPane(paneLogIn);
                 revalidate();
             }
         });
@@ -449,7 +459,7 @@ public class Interface extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane confirmYourPurchase = new JOptionPane();
                 int retour = confirmYourPurchase.showConfirmDialog(null, "Do you confirm your purchases ?",
-                        "### Cart ###", JOptionPane.OK_CANCEL_OPTION);
+                        " Cart  ", JOptionPane.OK_CANCEL_OPTION);
                 if (retour == 0) {
                     cartShopping.displayCart(StockText);
                     Order orderUser = new Order(userNameText.getText(), cartShopping, cartShopping.getCartTotalAmount(), 1);
@@ -457,7 +467,7 @@ public class Interface extends JFrame {
                     JOptionPane yourPurchase = new JOptionPane();
                     yourPurchase.showMessageDialog(null,
                             "Thanks to ordered in Pineapple Market ! You will receive your articles soon.",
-                            "You order", JOptionPane.PLAIN_MESSAGE);
+                            "You order", JOptionPane.PLAIN_MESSAGE, null);
                     cartShopping.clearShoppingCart();
                 }
             }
@@ -510,7 +520,7 @@ public class Interface extends JFrame {
                 if (textNewName.getText().isEmpty() || textQuantity.getText().isEmpty() || textPrice.getText().isEmpty() || textID.getText().isEmpty()) {
                     labelConfirm.setVisible(false);
                     labelFailure.setVisible(true);
-                    JOptionPane.showMessageDialog(null, "Uh-oh!", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Uh-oh!", "Error", JOptionPane.PLAIN_MESSAGE, null);
                 } else {
                     labelConfirm.setVisible(true);
                     labelFailure.setVisible(false);
@@ -547,11 +557,31 @@ public class Interface extends JFrame {
         logoutAdmin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setContentPane(paneLogInUser);
+                setContentPane(paneLogIn);
                 revalidate();
 
             }
 
+        });
+
+        logout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                setContentPane(paneLogIn);
+                revalidate();
+            }
+        });
+
+        validateSignIn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                String loginNew = loginSignInText.getText();
+                String passNew = passwordSignIn.getText();
+                User theUser = new User(loginNew, passNew);
+                User.userList.add(theUser);
+                JOptionPane.showMessageDialog(null, "You just create a new account", "Congrats !", JOptionPane.PLAIN_MESSAGE, null);
+
+            }
         });
 
 
@@ -561,12 +591,8 @@ public class Interface extends JFrame {
         for (User users: myList) {
             if(users.getUsername().equals(myLogin.getText()) && users.getPassword().equals(myMDP.getText()) ){
                 found =true;
-               // JOptionPane wrongLogIn = new JOptionPane();
-                //wrongLogIn.showMessageDialog(null, "Your log In or you MDP do  exist"+found);
             }else {
                 found = false;
-               // JOptionPane wrongLogIn = new JOptionPane();
-               // wrongLogIn.showMessageDialog(null, "Your log In or you MDP do not exist"+found);
             }
         }
         return found;
