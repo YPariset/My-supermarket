@@ -57,6 +57,7 @@ public class Interface extends JFrame {
 
         paneEnter.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneLogIn.setLayout(new FlowLayout(FlowLayout.CENTER));
+        paneLogIn.setBackground(Color.orange);
         paneMain.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneClient.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneAdmin.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -145,7 +146,7 @@ public class Interface extends JFrame {
         clientLabel.setPreferredSize(new Dimension(500,80));
         JButton products = new JButton("PRODUCTS");
         JButton addProductsCart = new JButton("ADD PRODUCTS TO CART");
-        JButton seeCart = new JButton("SEE CART");
+        JButton seeCart = new JButton("PAY CART");
         JLabel ghostSpace = new JLabel("");
         ghostSpace.setPreferredSize(new Dimension(500,70));
         JButton logout = new JButton("LOGOUT");
@@ -153,7 +154,7 @@ public class Interface extends JFrame {
         StockText.setPreferredSize(new Dimension(500,200));
             //Add to Cart
         JLabel IDofProduct = new JLabel("Type ID of product wanted",SwingConstants.RIGHT);
-        IDofProduct.setPreferredSize(new Dimension(170,50));
+        IDofProduct.setPreferredSize(new Dimension(170,30));
         IDofProduct.setVisible(false);
         JTextField addID = new JTextField();
         addID.setPreferredSize(new Dimension(50,40));
@@ -316,11 +317,6 @@ public class Interface extends JFrame {
         /****************** User actions management ****************/
         /***********************************************************/
 
-        /*
-        setContentPane(paneEnter);
-        revalidate();
-
-         */
 
         // Enter button
 
@@ -502,7 +498,7 @@ public class Interface extends JFrame {
                     setContentPane(paneClient);
                     revalidate();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Sorry but i don't know your id", "Try Again", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "   Sorry but i don't know your id  ", "Try Again", JOptionPane.PLAIN_MESSAGE, null);
                 }
             }
         });
@@ -510,7 +506,7 @@ public class Interface extends JFrame {
         logoutAdmin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                setContentPane(paneEnter);
+                setContentPane(paneLogIn);
                 revalidate();
             }
         });
@@ -518,8 +514,19 @@ public class Interface extends JFrame {
         logout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                setContentPane(paneEnter);
+                setContentPane(paneLogIn);
                 revalidate();
+            }
+        });
+
+        validate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                String newUsername = loginText.getText();
+                String newPassword = passWordText.getText();
+
+                User theUser = new User(newUsername, newPassword);
+                User.userList.add(theUser);
             }
         });
 
